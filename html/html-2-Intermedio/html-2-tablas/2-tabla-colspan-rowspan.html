@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas HTML - Colspan y Rowspan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        td, th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .explicacion {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            margin-bottom: 20px;
+        }
+        .atributo {
+            color: #e83e8c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tablas HTML - Atributos colspan y rowspan</h1>
+    
+    <div class="explicacion">
+        <p>Los atributos <span class="atributo">colspan</span> y <span class="atributo">rowspan</span> permiten que una celda ocupe más de una columna o fila:</p>
+        <ul>
+            <li><code>colspan="n"</code>: Hace que una celda ocupe "n" columnas</li>
+            <li><code>rowspan="n"</code>: Hace que una celda ocupe "n" filas</li>
+        </ul>
+    </div>
+
+    <h2>Ejemplo de colspan</h2>
+    <table>
+        <tr>
+            <th colspan="3">Información de Ventas Trimestrales</th>
+        </tr>
+        <tr>
+            <th>Producto</th>
+            <th>Vendedor</th>
+            <th>Cantidad</th>
+        </tr>
+        <tr>
+            <td>Laptops</td>
+            <td>Juan</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>Smartphones</td>
+            <td>Laura</td>
+            <td>25</td>
+        </tr>
+    </table>
+
+    <h3>Código utilizado:</h3>
+    <pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th colspan="3"&gt;Información de Ventas Trimestrales&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Producto&lt;/th&gt;
+        &lt;th&gt;Vendedor&lt;/th&gt;
+        &lt;th&gt;Cantidad&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Laptops&lt;/td&gt;
+        &lt;td&gt;Juan&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Smartphones&lt;/td&gt;
+        &lt;td&gt;Laura&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+    </pre>
+
+    <h2>Ejemplo de rowspan</h2>
+    <table>
+        <tr>
+            <th>Categoría</th>
+            <th>Producto</th>
+            <th>Precio</th>
+        </tr>
+        <tr>
+            <td rowspan="2">Electrónica</td>
+            <td>Laptop</td>
+            <td>$1200</td>
+        </tr>
+        <tr>
+            <td>Tablet</td>
+            <td>$400</td>
+        </tr>
+        <tr>
+            <td rowspan="2">Hogar</td>
+            <td>Lavadora</td>
+            <td>$600</td>
+        </tr>
+        <tr>
+            <td>Refrigerador</td>
+            <td>$950</td>
+        </tr>
+    </table>
+
+    <h3>Código utilizado:</h3>
+    <pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Categoría&lt;/th&gt;
+        &lt;th&gt;Producto&lt;/th&gt;
+        &lt;th&gt;Precio&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td rowspan="2"&gt;Electrónica&lt;/td&gt;
+        &lt;td&gt;Laptop&lt;/td&gt;
+        &lt;td&gt;$1200&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Tablet&lt;/td&gt;
+        &lt;td&gt;$400&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td rowspan="2"&gt;Hogar&lt;/td&gt;
+        &lt;td&gt;Lavadora&lt;/td&gt;
+        &lt;td&gt;$600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Refrigerador&lt;/td&gt;
+        &lt;td&gt;$950&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+    </pre>
+    
+    <h2>Ejemplo combinando colspan y rowspan</h2>
+    <table>
+        <tr>
+            <th colspan="2" rowspan="2">Información</th>
+            <th colspan="2">Primer Semestre</th>
+        </tr>
+        <tr>
+            <th>Q1</th>
+            <th>Q2</th>
+        </tr>
+        <tr>
+            <td rowspan="2">Región Norte</td>
+            <td>Producto A</td>
+            <td>500</td>
+            <td>650</td>
+        </tr>
+        <tr>
+            <td>Producto B</td>
+            <td>300</td>
+            <td>480</td>
+        </tr>
+    </table>
+
+    <h3>Código utilizado:</h3>
+    <pre>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th colspan="2" rowspan="2"&gt;Información&lt;/th&gt;
+        &lt;th colspan="2"&gt;Primer Semestre&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Q1&lt;/th&gt;
+        &lt;th&gt;Q2&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td rowspan="2"&gt;Región Norte&lt;/td&gt;
+        &lt;td&gt;Producto A&lt;/td&gt;
+        &lt;td&gt;500&lt;/td&gt;
+        &lt;td&gt;650&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Producto B&lt;/td&gt;
+        &lt;td&gt;300&lt;/td&gt;
+        &lt;td&gt;480&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+    </pre>
+</body>
+</html>

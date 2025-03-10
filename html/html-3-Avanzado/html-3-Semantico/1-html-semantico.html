@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Semántico: Guía y Ejemplos</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Estilos para etiquetas semánticas */
+        header, footer, nav, main, article, section, aside, figure {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header {
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        nav {
+            background-color: #343a40;
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            background-color: #fff;
+            min-height: 500px;
+        }
+
+        article {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+        }
+
+        section {
+            background-color: #f1f3f5;
+            margin: 15px 0;
+        }
+
+        aside {
+            background-color: #e9ecef;
+            float: right;
+            width: 25%;
+            margin-left: 20px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            clear: both;
+        }
+
+        /* Estilos para figure y figcaption */
+        figure {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px;
+        }
+
+        figcaption {
+            font-style: italic;
+            margin-top: 10px;
+            color: #6c757d;
+        }
+
+        .placeholder-img {
+            background-color: #dee2e6;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-weight: bold;
+        }
+
+        /* Comparativa visualmente resaltada */
+        .comparison {
+            display: flex;
+            margin: 30px 0;
+            gap: 20px;
+        }
+
+        .no-semantic, .semantic {
+            flex: 1;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .no-semantic {
+            background-color: #ffe6e6;
+            border: 1px solid #ffcccc;
+        }
+
+        .semantic {
+            background-color: #e6ffed;
+            border: 1px solid #ccffdd;
+        }
+
+        /* Para destacar etiquetas dentro del texto */
+        .tag {
+            background-color: #e2e3e5;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        /* Tabla para SEO */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f3f5;
+        }
+
+        /* Para demo de accesibilidad */
+        .accessibility-demo {
+            background-color: #f1f3f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        summary {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Para la navegación entre secciones */
+        .page-nav {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .page-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .page-nav li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera del sitio -->
+    <header>
+        <h1>HTML Semántico: Guía Completa</h1>
+        <p>Aprende a estructurar tus páginas web con etiquetas semánticas para mejorar la accesibilidad y el SEO</p>
+    </header>
+
+    <!-- Navegación principal -->
+    <nav>
+        <ul>
+            <li><a href="#introduccion">Introducción</a></li>
+            <li><a href="#etiquetas">Etiquetas Semánticas</a></li>
+            <li><a href="#accesibilidad">Accesibilidad</a></li>
+            <li><a href="#seo">SEO</a></li>
+            <li><a href="#figure">Figure y Figcaption</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main>
+        <section id="introduccion">
+            <h2>¿Qué es el HTML Semántico?</h2>
+            <p>El HTML semántico es el uso de etiquetas HTML que refuerzan el significado de la información en las páginas web, en lugar de simplemente definir su apariencia.</p>
+            
+            <div class="comparison">
+                <div class="no-semantic">
+                    <h3>HTML No Semántico</h3>
+                    <code>
+                        &lt;div class="header"&gt;<br>
+                        &nbsp;&nbsp;&lt;h1&gt;Mi Sitio Web&lt;/h1&gt;<br>
+                        &lt;/div&gt;<br>
+                        <br>
+                        &lt;div class="nav"&gt;<br>
+                        &nbsp;&nbsp;&lt;ul&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &lt;/div&gt;<br>
+                        <br>
+                        &lt;div class="content"&gt;<br>
+                        &nbsp;&nbsp;&lt;div class="article"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Mi Artículo&lt;/h2&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Contenido...&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;/div&gt;<br>
+                        &lt;/div&gt;<br>
+                        <br>
+                        &lt;div class="footer"&gt;<br>
+                        &nbsp;&nbsp;&lt;p&gt;Copyright 2025&lt;/p&gt;<br>
+                        &lt;/div&gt;
+                    </code>
+                </div>
+                <div class="semantic">
+                    <h3>HTML Semántico</h3>
+                    <code>
+                        &lt;header&gt;<br>
+                        &nbsp;&nbsp;&lt;h1&gt;Mi Sitio Web&lt;/h1&gt;<br>
+                        &lt;/header&gt;<br>
+                        <br>
+                        &lt;nav&gt;<br>
+                        &nbsp;&nbsp;&lt;ul&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;<br>
+                        &nbsp;&nbsp;&lt;/ul&gt;<br>
+                        &lt;/nav&gt;<br>
+                        <br>
+                        &lt;main&gt;<br>
+                        &nbsp;&nbsp;&lt;article&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Mi Artículo&lt;/h2&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Contenido...&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;/article&gt;<br>
+                        &lt;/main&gt;<br>
+                        <br>
+                        &lt;footer&gt;<br>
+                        &nbsp;&nbsp;&lt;p&gt;Copyright 2025&lt;/p&gt;<br>
+                        &lt;/footer&gt;
+                    </code>
+                </div>
+            </div>
+            
+            <p>Con HTML semántico, cada elemento de la página tiene un significado específico que describe el tipo de contenido que contiene. Esto hace que el código sea más claro y facilita que los navegadores, motores de búsqueda y tecnologías de asistencia interpreten correctamente el contenido.</p>
+        </section>
+
+        <section id="etiquetas">
+            <h2>Etiquetas Semánticas Principales</h2>
+            
+            <article>
+                <h3>La etiqueta <span class="tag">&lt;header&gt;</span></h3>
+                <p>Representa el encabezado introductorio de una página o sección. Normalmente contiene:</p>
+                <ul>
+                    <li>El logotipo del sitio</li>
+                    <li>Título principal (h1)</li>
+                    <li>Tagline o descripción breve del sitio</li>
+                    <li>A veces incluye la navegación principal</li>
+                </ul>
+                <p>Ejemplo práctico:</p>
+                <pre><code>&lt;header&gt;
+    &lt;img src="logo.png" alt="Mi Logo"&gt;
+    &lt;h1&gt;Nombre del Sitio&lt;/h1&gt;
+    &lt;p&gt;Descripción breve del sitio&lt;/p&gt;
+&lt;/header&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>La etiqueta <span class="tag">&lt;nav&gt;</span></h3>
+                <p>Define una sección que contiene enlaces de navegación principales. Puede haber varios elementos <span class="tag">&lt;nav&gt;</span> en una página.</p>
+                <p>Ejemplo práctico:</p>
+                <pre><code>&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="index.html"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="servicios.html"&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="contacto.html"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>La etiqueta <span class="tag">&lt;main&gt;</span></h3>
+                <p>Especifica el contenido principal de la página. Solo debe haber un elemento <span class="tag">&lt;main&gt;</span> por documento.</p>
+                <p>Ejemplo práctico:</p>
+                <pre><code>&lt;main&gt;
+    &lt;h2&gt;Título de la página&lt;/h2&gt;
+    &lt;p&gt;Contenido principal...&lt;/p&gt;
+    
+    &lt;article&gt;
+        &lt;!-- Artículo 1 --&gt;
+    &lt;/article&gt;
+    
+    &lt;article&gt;
+        &lt;!-- Artículo 2 --&gt;
+    &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>La etiqueta <span class="tag">&lt;article&gt;</span></h3>
+                <p>Representa contenido independiente y autocontenido. Debe tener sentido por sí solo, como una publicación de blog, un comentario o un widget.</p>
+                <p>Ejemplo práctico:</p>
+                <pre><code>&lt;article&gt;
+    &lt;header&gt;
+        &lt;h2&gt;Título del Artículo&lt;/h2&gt;
+        &lt;p&gt;Publicado el &lt;time datetime="2025-03-10"&gt;10 de marzo de 2025&lt;/time&gt; por &lt;a href="#"&gt;Autor&lt;/a&gt;&lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;p&gt;Contenido del artículo...&lt;/p&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;Categorías: &lt;a href="#"&gt;Web&lt;/a&gt;, &lt;a href="#"&gt;HTML&lt;/a&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>La etiqueta <span class="tag">&lt;section&gt;</span></h3>
+                <p>Define una sección temática de contenido. Generalmente tiene un encabezado y agrupa contenido relacionado.</p>
+                <p>Ejemplo práctico:</p>
+                <pre><code>&lt;section&gt;
+    &lt;h2&gt;Nuestros Servicios&lt;/h2&gt;
+    
+    &lt;!-- Primer servicio --&gt;
+    &lt;div&gt;
+        &lt;h3&gt;Diseño Web&lt;/h3&gt;
+        &lt;p&gt;Descripción del servicio...&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Segundo servicio --&gt;
+    &lt;div&gt;
+        &lt;h3&gt;Desarrollo&lt;/h3&gt;
+        &lt;p&gt;Descripción del servicio...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>La etiqueta <span class="tag">&lt;aside&gt;</span></h3>
+                <p>Representa contenido tangencialmente relacionado con el contenido principal, como barras laterales, notas al margen, etc.</p>
+                <p>Ejemplo práctico:</p>
+                <pre><code>&lt;aside&gt;
+    &lt;h3&gt;Artículos Relacionados&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Introducción a CSS&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Fundamentos de JavaScript&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/aside&gt;</code></pre>
+            </article>
+            
+            <article>
+                <h3>La etiqueta <span class="tag">&lt;footer&gt;</span></h3>
+                <p>Representa el pie de página de una sección o de la página completa. Típicamente contiene información de copyright, enlaces a políticas, mapa del sitio, etc.</p>
+                <p>Ejemplo práctico:</p>
+                <pre><code>&lt;footer&gt;
+    &lt;p&gt;&copy; 2025 Mi Sitio Web. Todos los derechos reservados.&lt;/p&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="politica-privacidad.html"&gt;Política de Privacidad&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="terminos.html"&gt;Términos de Uso&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/footer&gt;</code></pre>
+            </article>
+        </section>
+
+        <section id="accesibilidad">
+            <h2>Importancia para la Accesibilidad Web</h2>
+            
+            <p>El HTML semántico es crucial para la accesibilidad web por varias razones:</p>
+            
+            <div class="accessibility-demo">
+                <h3>Beneficios para la accesibilidad</h3>
+                
+                <details>
+                    <summary>1. Lectores de pantalla</summary>
+                    <p>Los lectores de pantalla utilizan las etiquetas semánticas para navegar y describir el contenido a usuarios con discapacidad visual. Por ejemplo:</p>
+                    <ul>
+                        <li>Anuncian "encabezado" cuando encuentran un <span class="tag">&lt;header&gt;</span></li>
+                        <li>Permiten saltar directamente al <span class="tag">&lt;main&gt;</span> con atajos de teclado</li>
+                        <li>Identifican la navegación principal dentro de <span class="tag">&lt;nav&gt;</span></li>
+                    </ul>
+                </details>
+                
+                <details>
+                    <summary>2. Navegación por teclado</summary>
+                    <p>Las etiquetas semánticas mejoran la navegación con teclado, permitiendo a los usuarios saltar entre secciones importantes sin tener que tabular por cada elemento.</p>
+                </details>
+                
+                <details>
+                    <summary>3. ARIA (Accessible Rich Internet Applications)</summary>
+                    <p>Muchas etiquetas semánticas tienen roles ARIA implícitos, lo que significa que no necesitas agregar atributos ARIA adicionales:</p>
+                    <table>
+                        <tr>
+                            <th>Elemento HTML</th>
+                            <th>Rol ARIA implícito</th>
+                        </tr>
+                        <tr>
+                            <td><span class="tag">&lt;header&gt;</span></td>
+                            <td>banner (cuando es hijo directo de body)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag">&lt;nav&gt;</span></td>
+                            <td>navigation</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag">&lt;main&gt;</span></td>
+                            <td>main</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag">&lt;aside&gt;</span></td>
+                            <td>complementary</td>
+                        </tr>
+                        <tr>
+                            <td><span class="tag">&lt;footer&gt;</span></td>
+                            <td>contentinfo (cuando es hijo directo de body)</td>
+                        </tr>
+                    </table>
+                </details>
+                
+                <details>
+                    <summary>4. Modo de lectura de navegadores</summary>
+                    <p>Navegadores como Firefox y Safari tienen un "Modo de lectura" que elimina distracciones y reformatea el contenido para una mejor experiencia de lectura. Este modo se basa en etiquetas semánticas para identificar el contenido principal.</p>
+                </details>
+            </div>
+            
+            <p>Un ejemplo de estructura accesible:</p>
+            <pre><code>&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Título del Sitio&lt;/h1&gt;
+    &lt;/header&gt;
+    
+    &lt;nav&gt;
+        &lt;!-- Barra de navegación principal con atributo ARIA adicional --&gt;
+        &lt;ul aria-label="Navegación principal"&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Servicios&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+    
+    &lt;main id="contenido-principal"&gt;
+        &lt;!-- Un link de salto para usuarios de teclado --&gt;
+        &lt;a href="#contenido-principal" class="skip-link"&gt;Saltar al contenido principal&lt;/a&gt;
+        
+        &lt;article&gt;
+            &lt;h2&gt;Título del Artículo&lt;/h2&gt;
+            &lt;p&gt;Contenido...&lt;/p&gt;
+        &lt;/article&gt;
+    &lt;/main&gt;
+    
+    &lt;aside&gt;
+        &lt;h2&gt;Contenido Relacionado&lt;/h2&gt;
+        &lt;!-- ... --&gt;
+    &lt;/aside&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;Información de copyright&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+        </section>
+
+        <section id="seo">
+            <h2>Mejoras en SEO mediante HTML Semántico</h2>
+            
+            <p>El HTML semántico juega un papel importante en el SEO (Search Engine Optimization) porque ayuda a los motores de búsqueda a entender mejor el contenido de tu página:</p>
+            
+            <table>
+                <tr>
+                    <th>Aspecto SEO</th>
+                    <th>Beneficio del HTML Semántico</th>
+                </tr>
+                <tr>
+                    <td>Comprensión del contenido</td>
+                    <td>Los motores de búsqueda pueden identificar claramente qué partes de tu página contienen el contenido principal vs. navegación, encabezados, pies de página, etc.</td>
+                </tr>
+                <tr>
+                    <td>Snippets enriquecidos</td>
+                    <td>El uso de etiquetas semánticas como <span class="tag">&lt;article&gt;</span> y elementos como <span class="tag">&lt;time&gt;</span> puede ayudar a generar fragmentos enriquecidos en los resultados de búsqueda.</td>
+                </tr>
+                <tr>
+                    <td>Relevancia de contenido</td>
+                    <td>El uso adecuado de encabezados jerárquicos (h1-h6) dentro de las secciones semánticas ayuda a establecer la importancia relativa de diferentes partes del contenido.</td>
+                </tr>
+                <tr>
+                    <td>Indexación móvil</td>
+                    <td>Con la indexación móvil primero (mobile-first indexing), Google prioriza sitios bien estructurados con HTML semántico que ofrezcan buena experiencia en dispositivos móviles.</td>
+                </tr>
+            </table>
+            
+            <p>Ejemplo de estructura optimizada para SEO:</p>
+            <pre><code>&lt;article&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Título Optimizado con Palabras Clave&lt;/h1&gt;
+        &lt;p&gt;
+            Publicado por &lt;span itemscope itemtype="http://schema.org/Person"&gt;
+                &lt;span itemprop="name"&gt;Nombre del Autor&lt;/span&gt;
+            &lt;/span&gt;
+            el &lt;time datetime="2025-03-10" itemprop="datePublished"&gt;10 de marzo de 2025&lt;/time&gt;
+        &lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;section&gt;
+        &lt;h2&gt;Primer Subtítulo Relevante&lt;/h2&gt;
+        &lt;p&gt;Contenido valioso con palabras clave naturales...&lt;/p&gt;
+        
+        &lt;figure&gt;
+            &lt;img src="imagen.jpg" alt="Descripción optimizada con palabras clave" itemprop="image"&gt;
+            &lt;figcaption&gt;Descripción detallada de la imagen con términos relevantes&lt;/figcaption&gt;
+        &lt;/figure&gt;
+    &lt;/section&gt;
+    
+    &lt;section&gt;
+        &lt;h2&gt;Segundo Subtítulo Importante&lt;/h2&gt;
+        &lt;p&gt;Más contenido valioso...&lt;/p&gt;
+    &lt;/section&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;Categorías: 
+            &lt;a href="#" rel="category"&gt;Categoría Principal&lt;/a&gt;, 
+            &lt;a href="#" rel="category"&gt;Categoría Secundaria&lt;/a&gt;
+        &lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+        </section>
+
+        <section id="figure">
+            <h2>Uso de <span class="tag">&lt;figure&gt;</span> y <span class="tag">&lt;figcaption&gt;</span></h2>
+            
+            <p>Las etiquetas <span class="tag">&lt;figure&gt;</span> y <span class="tag">&lt;figcaption&gt;</span> son especialmente útiles para contenido ilustrativo como imágenes, diagramas, fragmentos de código, etc., que requieren una leyenda explicativa.</p>
+            
+            <h3>Ejemplo básico con imagen:</h3>
+            
+            <figure>
+                <div class="placeholder-img">Imagen de ejemplo</div>
+                <figcaption>Fig 1. Esta es una leyenda que describe la imagen y proporciona contexto adicional.</figcaption>
+            </figure>
+            
+            <p>Código del ejemplo anterior:</p>
+            <pre><code>&lt;figure&gt;
+    &lt;img src="imagen.jpg" alt="Breve descripción para accesibilidad"&gt;
+    &lt;figcaption&gt;Fig 1. Esta es una leyenda que describe la imagen y proporciona contexto adicional.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+            
+            <h3>Ejemplo con fragmento de código:</h3>
+            
+            <figure>
+                <pre><code>function saludar(nombre) {
+    return `¡Hola, ${nombre}!`;
+}
+
+console.log(saludar('Mundo'));</code></pre>
+                <figcaption>Fig 2. Función simple en JavaScript que saluda al usuario.</figcaption>
+            </figure>
+            
+            <p>Código del ejemplo anterior:</p>
+            <pre><code>&lt;figure&gt;
+    &lt;pre&gt;&lt;code&gt;function saludar(nombre) {
+    return `¡Hola, ${nombre}!`;
+}
+
+console.log(saludar('Mundo'));&lt;/code&gt;&lt;/pre&gt;
+    &lt;figcaption&gt;Fig 2. Función simple en JavaScript que saluda al usuario.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+            
+            <h3>Ejemplo con múltiples imágenes en un solo figure:</h3>
+            
+            <figure>
+                <div style="display: flex; justify-content: space-between;">
+                    <div class="placeholder-img" style="width: 48%; height: 150px;">Imagen 1</div>
+                    <div class="placeholder-img" style="width: 48%; height: 150px;">Imagen 2</div>
+                </div>
+                <figcaption>Fig 3. Comparativa entre dos versiones del diseño web.</figcaption>
+            </figure>
+            
+            <p>Código del ejemplo anterior:</p>
+            <pre><code>&lt;figure&gt;
+    &lt;div style="display: flex; justify-content: space-between;"&gt;
+        &lt;img src="imagen1.jpg" alt="Versión anterior" style="width: 48%"&gt;
+        &lt;img src="imagen2.jpg" alt="Nueva versión" style="width: 48%"&gt;
+    &lt;/div&gt;
+    &lt;figcaption&gt;Fig 3. Comparativa entre dos versiones del diseño web.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+            
+            <h3>Beneficios de usar figure y figcaption:</h3>
+            
+            <ul>
+                <li><strong>Accesibilidad:</strong> Los lectores de pantalla identifican correctamente la relación entre el contenido y su descripción.</li>
+                <li><strong>SEO:</strong> Proporciona contexto adicional para imágenes y otros contenidos visuales.</li>
+                <li><strong>Estructura:</strong> Agrupa lógicamente contenido relacionado.</li>
+                <li><strong>Estilo:</strong> Facilita aplicar estilos consistentes a todos los elementos ilustrativos.</li>
+            </ul>
+        </section>
+    </main>
+
+    <aside>
+        <h2>Recursos adicionales</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/es/docs/Web/HTML/Element">Referencia de element

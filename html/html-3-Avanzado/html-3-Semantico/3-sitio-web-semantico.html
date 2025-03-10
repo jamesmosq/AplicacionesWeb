@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTurismo Sostenible</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Estilos para el header */
+        header {
+            background-color: #057a55;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Navegación */
+        nav {
+            background-color: #046344;
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Main content */
+        main {
+            padding: 40px 0;
+        }
+        
+        /* Hero section */
+        .hero {
+            background-color: #e6f7f2;
+            padding: 60px 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #045d40;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #057a55;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #046344;
+        }
+        
+        /* Secciones de contenido */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        article {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        article h2 {
+            color: #045d40;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+        
+        article h3 {
+            color: #057a55;
+            margin: 20px 0 10px;
+            font-size: 22px;
+        }
+        
+        article p {
+            margin-bottom: 15px;
+        }
+        
+        section {
+            margin-bottom: 25px;
+        }
+        
+        /* Figure y figcaption */
+        figure {
+            margin: 25px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        figcaption {
+            background-color: #e6f7f2;
+            padding: 15px;
+            font-style: italic;
+            color: #045d40;
+            text-align: center;
+        }
+        
+        /* Aside */
+        aside {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            height: fit-content;
+        }
+        
+        aside h3 {
+            color: #045d40;
+            border-bottom: 2px solid #e6f7f2;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        aside ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        aside li {
+            margin-bottom: 8px;
+        }
+        
+        .card {
+            background-color: #e6f7f2;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .card h4 {
+            color: #045d40;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #045d40;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 8px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-column a {
+            color: #a7e9d4;
+            text-decoration: none;
+        }
+        
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera semántica del sitio -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">EcoTurismo</div>
+                <p>Explorando la naturaleza de forma sostenible</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navegación principal semántica -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#consejos">Consejos</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Contenido principal semántico -->
+    <main>
+        <div class="container">
+            <!-- Sección hero como section -->
+            <section id="inicio" class="hero">
+                <h1>Viaja Responsablemente, Impacta Positivamente</h1>
+                <p>Descubre cómo disfrutar de tus aventuras en la naturaleza mientras contribuyes a la conservación de ecosistemas únicos y apoyas a las comunidades locales.</p>
+                <a href="#destinos" class="btn">Explorar Destinos</a>
+            </section>
+            
+            <!-- Contenedor de contenido principal y barra lateral -->
+            <div class="content-wrapper">
+                <!-- Contenido principal -->
+                <div>
+                    <!-- Artículo semántico 1 -->
+                    <article id="destinos">
+                        <h2>Destinos Ecoturísticos Recomendados</h2>
+                        
+                        <section>
+                            <h3>Bosques Tropicales</h3>
+                            <p>Los bosques tropicales son ecosistemas increíblemente diversos que albergan más de la mitad de las especies terrestres del planeta. Visitar estos lugares de forma responsable puede contribuir a su conservación.</p>
+                            
+                            <!-- Uso de figure y figcaption -->
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Vista panorámica de un bosque tropical con abundante vegetación">
+                                <figcaption>Bosque tropical en la estación húmeda, hogar de miles de especies endémicas</figcaption>
+                            </figure>
+                            
+                            <p>Al planificar tu visita a estos ecosistemas, opta siempre por guías locales que conozcan la zona y respeten los protocolos de conservación. Muchas comunidades ofrecen tours que permiten una experiencia auténtica mientras generan ingresos sostenibles.</p>
+                        </section>
+                        
+                        <section>
+                            <h3>Áreas Marinas Protegidas</h3>
+                            <p>Las áreas marinas protegidas son zonas designadas para salvaguardar ecosistemas acuáticos importantes. El turismo responsable en estas áreas ayuda a financiar esfuerzos de conservación y educación ambiental.</p>
+                            
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Arrecife de coral con peces tropicales en aguas cristalinas">
+                                <figcaption>Reserva marina con arrecifes de coral en perfecto estado de conservación</figcaption>
+                            </figure>
+                            
+                            <p>Durante el snorkel o buceo, mantén una distancia respetuosa de la vida marina y nunca toques los corales. Utiliza protector solar biodegradable y participa en actividades de monitoreo de especies si están disponibles.</p>
+                        </section>
+                    </article>
+                    
+                    <!-- Artículo semántico 2 -->
+                    <article id="consejos">
+                        <h2>Consejos para un Turismo Sostenible</h2>
+                        
+                        <section>
+                            <h3>Minimiza tu Huella de Carbono</h3>
+                            <p>Reducir el impacto ambiental de tus viajes comienza desde la planificación. Opta por destinos más cercanos cuando sea posible, utiliza transporte público y considera compensar las emisiones de carbono de tus vuelos.</p>
+                            
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Infografía mostrando formas de reducir la huella de carbono al viajar">
+                                <figcaption>Estrategias efectivas para reducir el impacto ambiental durante tus viajes</figcaption>
+                            </figure>
+                            
+                            <p>Muchas organizaciones ofrecen programas de compensación de carbono que invierten en proyectos de energía renovable o reforestación. Investigar estas opciones antes de viajar puede ayudarte a tomar decisiones más informadas.</p>
+                        </section>
+                        
+                        <section>
+                            <h3>Apoya a las Comunidades Locales</h3>
+                            <p>Una parte fundamental del turismo sostenible es asegurar que los beneficios económicos lleguen a las comunidades locales. Esto incluye alojarse en hospedajes de gestión local, consumir en restaurantes familiares y adquirir artesanías directamente de sus creadores.</p>
+                            
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Mercado local con artesanos vendiendo productos tradicionales">
+                                <figcaption>Mercado de artesanías gestionado por cooperativas de artesanos locales</figcaption>
+                            </figure>
+                            
+                            <p>Antes de comprar souvenirs, infórmate sobre su origen y proceso de fabricación. Evita productos elaborados con especies en peligro y prioriza aquellos que representan tradiciones culturales auténticas.</p>
+                        </section>
+                    </article>
+                    
+                    <!-- Artículo semántico 3 -->
+                    <article id="galeria">
+                        <h2>Galería de Experiencias Ecoturísticas</h2>
+                        
+                        <section>
+                            <p>Compartimos algunas de las experiencias más enriquecedoras que nuestros viajeros han documentado en sus aventuras ecoturísticas alrededor del mundo.</p>
+                            
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Grupo de viajeros participando en un proyecto de conservación de tortugas marinas">
+                                <figcaption>Voluntarios participando en un programa de conservación de tortugas marinas en Costa Rica</figcaption>
+                            </figure>
+                            
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Senderismo sostenible en montañas con guías locales">
+                                <figcaption>Senderismo guiado por expertos locales en las montañas de los Andes</figcaption>
+                            </figure>
+                            
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Observación responsable de vida silvestre en la sabana africana">
+                                <figcaption>Observación de fauna salvaje desde una distancia respetuosa en reservas naturales</figcaption>
+                            </figure>
+                        </section>
+                    </article>
+                </div>
+                
+                <!-- Barra lateral semántica -->
+                <aside>
+                    <h3>Recursos Útiles</h3>
+                    <ul>
+                        <li>Guías de destinos sostenibles</li>
+                        <li>Certificaciones de turismo responsable</li>
+                        <li>Calculadoras de huella de carbono</li>
+                        <li>Comunidades de viajeros conscientes</li>
+                    </ul>
+                    
+                    <div class="card">
+                        <h4>Próximos Webinars</h4>
+                        <p>Fotografía de naturaleza sin impacto negativo</p>
+                        <p><small>15 de marzo, 18:00h</small></p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>Libro Recomendado</h4>
+                        <p>"Ecoturismo: Experiencias transformadoras"</p>
+                        <p><small>Por María González</small></p>
+                    </div>
+                    
+                    <h3>Testimonios</h3>
+                    <blockquote>
+                        <p>"Mi experiencia de ecoturismo cambió completamente mi perspectiva sobre cómo viajar. Ahora soy mucho más consciente de mis decisiones."</p>
+                        <cite>— Carlos P., Madrid</cite>
+                    </blockquote>
+                </aside>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Pie de página semántico -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sobre Nosotros</h3>
+                    <p>EcoTurismo es una plataforma dedicada a promover prácticas de viaje responsables y sostenibles que beneficien tanto a los viajeros como a los destinos.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#destinos">Destinos</a></li>
+                        <li><a href="#consejos">Consejos</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <address>
+                        <p>Email: info@ecoturismo.org</p>
+                        <p>Teléfono: +57 310 458 9663</p>
+                        <p>Dirección: Calle Verde 123, Medellín, Colombia</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 EcoTurismo Sostenible. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas HTML - Elementos Semánticos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        td, th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        caption {
+            caption-side: top;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        thead {
+            background-color: #f2f2f2;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tfoot {
+            background-color: #e9e9e9;
+            font-weight: bold;
+        }
+        .explicacion {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            margin-bottom: 20px;
+        }
+        .elemento {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tablas HTML - Elementos Semánticos</h1>
+    
+    <div class="explicacion">
+        <p>Las tablas HTML pueden utilizar elementos semánticos para mejorar la estructura y el significado:</p>
+        <ul>
+            <li><span class="elemento">&lt;caption&gt;</span>: Define un título o leyenda para la tabla</li>
+            <li><span class="elemento">&lt;thead&gt;</span>: Agrupa el contenido de la cabecera de la tabla</li>
+            <li><span class="elemento">&lt;tbody&gt;</span>: Agrupa el cuerpo principal de la tabla</li>
+            <li><span class="elemento">&lt;tfoot&gt;</span>: Agrupa el contenido del pie de la tabla</li>
+        </ul>
+    </div>
+
+    <h2>Ejemplo de tabla con elementos semánticos</h2>
+    
+    <table>
+        <caption>Ventas Trimestrales por Departamento - 2024</caption>
+        <thead>
+            <tr>
+                <th>Departamento</th>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Q3</th>
+                <th>Q4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Electrónica</td>
+                <td>$45,000</td>
+                <td>$58,200</td>
+                <td>$52,300</td>
+                <td>$78,500</td>
+            </tr>
+            <tr>
+                <td>Ropa</td>
+                <td>$32,600</td>
+                <td>$35,400</td>
+                <td>$42,800</td>
+                <td>$68,200</td>
+            </tr>
+            <tr>
+                <td>Hogar</td>
+                <td>$28,300</td>
+                <td>$31,500</td>
+                <td>$36,700</td>
+                <td>$49,800</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>Total</td>
+                <td>$105,900</td>
+                <td>$125,100</td>
+                <td>$131,800</td>
+                <td>$196,500</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h3>Código utilizado:</h3>
+    <pre>
+&lt;table&gt;
+    &lt;caption&gt;Ventas Trimestrales por Departamento - 2024&lt;/caption&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Departamento&lt;/th&gt;
+            &lt;th&gt;Q1&lt;/th&gt;
+            &lt;th&gt;Q2&lt;/th&gt;
+            &lt;th&gt;Q3&lt;/th&gt;
+            &lt;th&gt;Q4&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Electrónica&lt;/td&gt;
+            &lt;td&gt;$45,000&lt;/td&gt;
+            &lt;td&gt;$58,200&lt;/td&gt;
+            &lt;td&gt;$52,300&lt;/td&gt;
+            &lt;td&gt;$78,500&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Ropa&lt;/td&gt;
+            &lt;td&gt;$32,600&lt;/td&gt;
+            &lt;td&gt;$35,400&lt;/td&gt;
+            &lt;td&gt;$42,800&lt;/td&gt;
+            &lt;td&gt;$68,200&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Hogar&lt;/td&gt;
+            &lt;td&gt;$28,300&lt;/td&gt;
+            &lt;td&gt;$31,500&lt;/td&gt;
+            &lt;td&gt;$36,700&lt;/td&gt;
+            &lt;td&gt;$49,800&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Total&lt;/td&gt;
+            &lt;td&gt;$105,900&lt;/td&gt;
+            &lt;td&gt;$125,100&lt;/td&gt;
+            &lt;td&gt;$131,800&lt;/td&gt;
+            &lt;td&gt;$196,500&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;
+    </pre>
+    
+    <div class="explicacion">
+        <p>Beneficios de usar elementos semánticos:</p>
+        <ul>
+            <li>Mejora la accesibilidad para lectores de pantalla</li>
+            <li>Facilita la aplicación de estilos CSS específicos</li>
+            <li>Hace que el código HTML sea más organizado y comprensible</li>
+            <li>La etiqueta <code>&lt;tfoot&gt;</code> se mostrará al final visualmente, pero puede aparecer antes de <code>&lt;tbody&gt;</code> en el código</li>
+        </ul>
+    </div>
+</body>
+</html>

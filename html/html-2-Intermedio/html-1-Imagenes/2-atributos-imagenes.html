@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos esenciales de imágenes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+        .ejemplo {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .importante {
+            background-color: #ffffcc;
+            border-left: 4px solid #ffcc00;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Atributos esenciales de imágenes en HTML</h1>
+    
+    <p>La etiqueta <code>&lt;img&gt;</code> puede tener varios atributos para controlar cómo se muestra la imagen y proporcionar información adicional.</p>
+
+    <table>
+        <tr>
+            <th>Atributo</th>
+            <th>Descripción</th>
+            <th>Obligatorio</th>
+        </tr>
+        <tr>
+            <td>src</td>
+            <td>URL o ruta de la imagen</td>
+            <td>Sí</td>
+        </tr>
+        <tr>
+            <td>alt</td>
+            <td>Texto alternativo para la imagen</td>
+            <td>Sí (para accesibilidad)</td>
+        </tr>
+        <tr>
+            <td>width</td>
+            <td>Ancho de la imagen en píxeles</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>height</td>
+            <td>Alto de la imagen en píxeles</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>title</td>
+            <td>Texto que aparece al pasar el cursor</td>
+            <td>No</td>
+        </tr>
+        <tr>
+            <td>loading</td>
+            <td>Cómo debe cargarse la imagen ("lazy" o "eager")</td>
+            <td>No</td>
+        </tr>
+    </table>
+
+    <div class="ejemplo">
+        <h2>src (source)</h2>
+        <p>Este atributo especifica la URL o ruta a la imagen que deseas mostrar.</p>
+        <img src="https://via.placeholder.com/300x150" alt="Ejemplo de atributo src">
+        <p><code>&lt;img src="https://via.placeholder.com/300x150" alt="Ejemplo de atributo src"&gt;</code></p>
+        
+        <div class="importante">
+            <strong>Importante:</strong> El atributo src es obligatorio para la etiqueta img.
+        </div>
+    </div>
+
+    <div class="ejemplo">
+        <h2>alt (texto alternativo)</h2>
+        <p>Este atributo proporciona un texto alternativo que se muestra si la imagen no puede cargarse o para usuarios que utilizan lectores de pantalla.</p>
+        
+        <!-- Esta imagen tiene una URL incorrecta para demostrar el texto alternativo -->
+        <img src="imagen_que_no_existe.jpg" alt="Esta imagen no existe, pero puedes ver este texto alternativo">
+        
+        <p><code>&lt;img src="imagen_que_no_existe.jpg" alt="Esta imagen no existe, pero puedes ver este texto alternativo"&gt;</code></p>
+        
+        <div class="importante">
+            <strong>Importante:</strong> El atributo alt es fundamental para:
+            <ul>
+                <li>Accesibilidad: permite a personas con discapacidad visual entender el contenido</li>
+                <li>SEO: ayuda a los motores de búsqueda a indexar tu contenido</li>
+                <li>Mostrar información cuando las imágenes fallan</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ejemplo">
+        <h2>width y height (ancho y alto)</h2>
+        <p>Estos atributos especifican las dimensiones de la imagen en píxeles.</p>
+        
+        <h3>Imagen con dimensiones originales:</h3>
+        <img src="https://via.placeholder.com/300x150" alt="Imagen original">
+        <p><code>&lt;img src="https://via.placeholder.com/300x150" alt="Imagen original"&gt;</code></p>
+        
+        <h3>Imagen con width y height personalizados:</h3>
+        <img src="https://via.placeholder.com/300x150" alt="Imagen redimensionada" width="200" height="100">
+        <p><code>&lt;img src="https://via.placeholder.com/300x150" alt="Imagen redimensionada" width="200" height="100"&gt;</code></p>
+        
+        <div class="importante">
+            <strong>Buena práctica:</strong> Siempre especifica el width y height de tus imágenes para:
+            <ul>
+                <li>Reservar espacio en la página mientras las imágenes se cargan</li>
+                <li>Evitar el "layout shift" (cambio de diseño) cuando la página se carga</li>
+                <li>Mejorar el rendimiento de la página</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ejemplo">
+        <h2>title (título)</h2>
+        <p>Este atributo muestra un texto informativo cuando el usuario pasa el cursor sobre la imagen.</p>
+        
+        <img src="https://via.placeholder.com/300x150" alt="Imagen con título" title="Este texto aparece al pasar el cursor sobre la imagen">
+        
+        <p><code>&lt;img src="https://via.placeholder.com/300x150" alt="Imagen con título" title="Este texto aparece al pasar el cursor sobre la imagen"&gt;</code></p>
+        
+        <p>Pasa el cursor sobre la imagen de arriba para ver el título.</p>
+    </div>
+
+    <div class="ejemplo">
+        <h2>loading (carga)</h2>
+        <p>Este atributo controla cómo el navegador debe cargar la imagen.</p>
+        
+        <h3>Carga normal (eager):</h3>
+        <img src="https://via.placeholder.com/300x150" alt="Carga normal" loading="eager">
+        <p><code>&lt;img src="https://via.placeholder.com/300x150" alt="Carga normal" loading="eager"&gt;</code></p>
+        
+        <h3>Carga diferida (lazy):</h3>
+        <img src="https://via.placeholder.com/300x150" alt="Carga diferida" loading="lazy">
+        <p><code>&lt;img src="https://via.placeholder.com/300x150" alt="Carga diferida" loading="lazy"&gt;</code></p>
+        
+        <div class="importante">
+            <strong>Ventaja:</strong> La carga diferida (lazy loading) mejora el rendimiento de la página al cargar las imágenes solo cuando están a punto de entrar en el viewport.
+        </div>
+    </div>
+</body>
+</html>

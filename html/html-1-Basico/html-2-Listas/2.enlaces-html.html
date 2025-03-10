@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enlaces en HTML</title>
+</head>
+<body>
+    <h1 id="inicio">Enlaces en HTML</h1>
+    
+    <!-- ÍNDICE CON ENLACES INTERNOS -->
+    <h2>Índice</h2>
+    <ul>
+        <li><a href="#enlaces-externos">Enlaces externos</a></li>
+        <li><a href="#enlaces-internos">Enlaces internos</a></li>
+        <li><a href="#atributos-enlaces">Atributos de enlaces</a></li>
+        <li><a href="#enlaces-email">Enlaces a correo electrónico</a></li>
+        <li><a href="#enlaces-telefono">Enlaces a teléfono</a></li>
+    </ul>
+
+    <!-- ENLACES EXTERNOS -->
+    <h2 id="enlaces-externos">Enlaces externos</h2>
+    <p>Los enlaces externos llevan a páginas web fuera de tu sitio.</p>
+    
+    <p>
+        <a href="https://www.google.com">Visitar Google</a>
+    </p>
+    
+    <p>
+        <a href="https://www.wikipedia.org">Visitar Wikipedia</a>
+    </p>
+
+    <!-- ENLACES INTERNOS -->
+    <h2 id="enlaces-internos">Enlaces internos</h2>
+    <p>Los enlaces internos te permiten navegar dentro de la misma página.</p>
+    
+    <p>
+        Para crear un enlace interno, primero debes crear un elemento con un atributo "id", 
+        y luego hacer referencia a ese id con un "#" en el atributo href.
+    </p>
+    
+    <p>
+        <a href="#inicio">Volver al inicio de la página</a>
+    </p>
+
+    <!-- ATRIBUTOS DE ENLACES -->
+    <h2 id="atributos-enlaces">Atributos de enlaces</h2>
+    
+    <h3>Atributo target</h3>
+    <p>El atributo "target" especifica dónde abrir el enlace.</p>
+    
+    <ul>
+        <li><a href="https://www.github.com" target="_blank">Abrir GitHub en una nueva pestaña (_blank)</a></li>
+        <li><a href="https://www.mozilla.org" target="_self">Abrir Mozilla en la misma pestaña (_self, es el valor predeterminado)</a></li>
+    </ul>
+    
+    <h3>Atributo title</h3>
+    <p>El atributo "title" muestra un texto informativo cuando el usuario pasa el cursor sobre el enlace.</p>
+    
+    <p>
+        <a href="https://www.w3schools.com" title="W3Schools: El sitio web para aprender desarrollo web">
+            Pasar el cursor sobre este enlace para ver el título
+        </a>
+    </p>
+    
+    <h3>Atributo rel</h3>
+    <p>El atributo "rel" especifica la relación entre la página actual y la página enlazada.</p>
+    
+    <ul>
+        <li><a href="https://www.example.com" rel="nofollow">Enlace con rel="nofollow" (indica a los motores de búsqueda que no sigan este enlace)</a></li>
+        <li><a href="https://www.example.org" rel="noreferrer">Enlace con rel="noreferrer" (no envía información de referencia)</a></li>
+        <li><a href="https://www.example.net" rel="noopener">Enlace con rel="noopener" (previene que la nueva página acceda a la ventana original)</a></li>
+    </ul>
+
+    <!-- ENLACES A CORREO ELECTRÓNICO -->
+    <h2 id="enlaces-email">Enlaces a correo electrónico</h2>
+    <p>Puedes crear enlaces que abran el cliente de correo electrónico del usuario.</p>
+    
+    <p>
+        <a href="mailto:ejemplo@correo.com">Enviar un correo electrónico</a>
+    </p>
+    
+    <p>
+        <a href="mailto:ejemplo@correo.com?subject=Asunto%20del%20correo&body=Cuerpo%20del%20mensaje">
+            Enviar un correo con asunto y cuerpo predefinidos
+        </a>
+    </p>
+
+    <!-- ENLACES A TELÉFONO -->
+    <h2 id="enlaces-telefono">Enlaces a teléfono</h2>
+    <p>Útiles para sitios web móviles, permiten llamar directamente a un número.</p>
+    
+    <p>
+        <a href="tel:+123456789">Llamar al +123456789</a>
+    </p>
+
+    <!-- VOLVER AL INICIO -->
+    <p>
+        <a href="#inicio">Volver al inicio de la página</a>
+    </p>
+</body>
+</html>

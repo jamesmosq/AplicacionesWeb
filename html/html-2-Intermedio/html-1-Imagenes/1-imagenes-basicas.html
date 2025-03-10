@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imágenes en HTML: Conceptos básicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .ejemplo {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inserción de imágenes en HTML</h1>
+    <p>La etiqueta <code>&lt;img&gt;</code> se utiliza para insertar imágenes en una página web. Es una etiqueta de "auto-cierre", lo que significa que no necesita una etiqueta de cierre.</p>
+
+    <div class="ejemplo">
+        <h2>Sintaxis básica</h2>
+        <code>&lt;img src="ruta/a/la/imagen.jpg" alt="Texto alternativo"&gt;</code>
+        
+        <h3>Ejemplo práctico:</h3>
+        <!-- Imagen de ejemplo usando un placeholder -->
+        <img src="https://via.placeholder.com/300x200" alt="Imagen de ejemplo 300x200">
+        
+        <p>Código utilizado:</p>
+        <code>&lt;img src="https://via.placeholder.com/300x200" alt="Imagen de ejemplo 300x200"&gt;</code>
+    </div>
+
+    <div class="ejemplo">
+        <h2>Rutas de imágenes</h2>
+        
+        <h3>1. Rutas absolutas (URLs completas)</h3>
+        <img src="https://via.placeholder.com/200x100/ff0000/ffffff" alt="Imagen con URL absoluta">
+        <p><code>&lt;img src="https://via.placeholder.com/200x100/ff0000/ffffff" alt="Imagen con URL absoluta"&gt;</code></p>
+        
+        <h3>2. Rutas relativas (desde la raíz del sitio)</h3>
+        <p><code>&lt;img src="/images/logo.png" alt="Logo del sitio"&gt;</code></p>
+        
+        <h3>3. Rutas relativas (desde el directorio actual)</h3>
+        <p><code>&lt;img src="images/foto.jpg" alt="Fotografía"&gt;</code></p>
+        
+        <h3>4. Rutas relativas (directorio superior)</h3>
+        <p><code>&lt;img src="../recursos/banner.jpg" alt="Banner"&gt;</code></p>
+    </div>
+
+    <p>Nota: Para los ejemplos, estamos usando imágenes de placeholder.com ya que es un servicio que genera imágenes de muestra. En un sitio web real, utilizarías tus propias imágenes almacenadas en tu servidor o servicio de alojamiento.</p>
+</body>
+</html>

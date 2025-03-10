@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio y Video en HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            margin-bottom: 40px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        h1, h2 {
+            color: #333;
+        }
+        
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .multimedia-container {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        audio, video {
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        
+        video {
+            background-color: #000;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        .code-example {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin: 10px 0;
+        }
+        
+        .info-box {
+            background-color: #e7f3fe;
+            border-left: 5px solid #2196F3;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        
+        .warning-box {
+            background-color: #ffebee;
+            border-left: 5px solid #f44336;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multimedia en HTML: Audio y Video</h1>
+    
+    <!-- SECCIÓN 1: AUDIO EN HTML -->
+    <section id="audio-section">
+        <h2>1. Inserción de Audio con &lt;audio&gt;</h2>
+        
+        <div class="info-box">
+            El elemento <strong>&lt;audio&gt;</strong> permite incorporar sonido directamente en páginas web sin necesidad de plugins externos.
+        </div>
+        
+        <h3>Estructura básica</h3>
+        
+        <div class="code-example">&lt;audio src="ruta-al-archivo.mp3" controls&gt;&lt;/audio&gt;</div>
+        
+        <h3>Ejemplo con controles básicos</h3>
+        
+        <div class="multimedia-container">
+            <audio controls>
+                <source src="/api/placeholder/400/320" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <p><em>Nota: Este es un audio de ejemplo. En un sitio real, reemplazarías la ruta con tu archivo de audio.</em></p>
+        </div>
+        
+        <h3>Múltiples formatos (compatibilidad entre navegadores)</h3>
+        
+        <div class="code-example">&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+    &lt;source src="audio.ogg" type="audio/ogg"&gt;
+    &lt;source src="audio.wav" type="audio/wav"&gt;
+    Tu navegador no soporta el elemento de audio.
+&lt;/audio&gt;</div>
+        
+        <h3>Atributos principales</h3>
+        
+        <table>
+            <tr>
+                <th>Atributo</th>
+                <th>Descripción</th>
+                <th>Valores</th>
+            </tr>
+            <tr>
+                <td>controls</td>
+                <td>Muestra los controles de reproducción</td>
+                <td>No tiene valor (presencia = true)</td>
+            </tr>
+            <tr>
+                <td>autoplay</td>
+                <td>Reproduce automáticamente el audio al cargar</td>
+                <td>No tiene valor (presencia = true)</td>
+            </tr>
+            <tr>
+                <td>loop</td>
+                <td>Repite el audio cuando termina</td>
+                <td>No tiene valor (presencia = true)</td>
+            </tr>
+            <tr>
+                <td>muted</td>
+                <td>Inicia el audio silenciado</td>
+                <td>No tiene valor (presencia = true)</td>
+            </tr>
+            <tr>
+                <td>preload</td>
+                <td>Especifica si el audio debe precargarse</td>
+                <td>auto, metadata, none</td>
+            </tr>
+        </table>
+        
+        <h3>Ejemplo completo con todos los atributos</h3>
+        
+        <div class="multimedia-container">
+            <audio controls autoplay loop muted preload="auto">
+                <source src="/api/placeholder/400/320" type="audio/mpeg">
+                <source src="/api/placeholder/400/320" type="audio/ogg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <div class="info-box">
+                <p>Este audio tiene configurado:</p>
+                <ul>
+                    <li><strong>controls</strong>: Muestra los controles de reproducción</li>
+                    <li><strong>autoplay</strong>: Intenta reproducir automáticamente (muchos navegadores bloquean esto)</li>
+                    <li><strong>loop</strong>: Se repite al finalizar</li>
+                    <li><strong>muted</strong>: Comienza silenciado</li>
+                    <li><strong>preload="auto"</strong>: Sugiere precargar el archivo completo</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="warning-box">
+            <p><strong>Importante:</strong> Los navegadores modernos bloquean la reproducción automática (autoplay) de archivos con sonido. Para que el autoplay funcione, generalmente debe combinarse con el atributo <strong>muted</strong>.</p>
+        </div>
+    </section>
+    
+    <!-- SECCIÓN 2: VIDEO EN HTML -->
+    <section id="video-section">
+        <h2>2. Inserción de Video con &lt;video&gt;</h2>
+        
+        <div class="info-box">
+            El elemento <strong>&lt;video&gt;</strong> permite incorporar videos directamente en páginas web sin necesidad de plugins externos.
+        </div>
+        
+        <h3>Estructura básica</h3>
+        
+        <div class="code-example">&lt;video src="ruta-al-archivo.mp4" controls&gt;&lt;/video&gt;</div>
+        
+        <h3>Ejemplo con controles básicos</h3>
+        
+        <div class="multimedia-container">
+            <video controls>
+                <source src="/api/placeholder/400/320" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <p><em>Nota: Este es un video de ejemplo. En un sitio real, reemplazarías la ruta con tu archivo de video.</em></p>
+        </div>
+        
+        <h3>Múltiples formatos (compatibilidad entre navegadores)</h3>
+        
+        <div class="code-example">&lt;video controls width="640" height="360"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+    &lt;source src="video.ogg" type="video/ogg"&gt;
+    Tu navegador no soporta el elemento de video.
+&lt;/video&gt;</div>
+        
+        <h3>Atributos principales</h3>
+        
+        <table>
+            <tr>
+                <th>Atributo</th>
+                <th>Descripción</th>
+                <th>Valores</th>
+            </tr>
+            <tr>
+                <td>controls</td>
+                <td>Muestra los controles de reproducción</td>
+                <td>No tiene valor (presencia = true)</td>
+            </tr>
+            <tr>
+                <td>autoplay</td>
+                <td>Reproduce automáticamente el video al cargar</td>
+                <td>No tiene valor (presencia = true)</td>
+            </tr>
+            <tr>
+                <td>loop</td>
+                <td>Repite el video cuando termina</td>
+                <td>No tiene valor (presencia = true)</td>
+            </tr>
+            <tr>
+                <td>muted</td>
+                <td>Inicia el video silenciado</td>
+                <td>No tiene valor (presencia = true)</td>
+            </tr>
+            <tr>
+                <td>poster</td>
+                <td>Imagen a mostrar antes de reproducir el video</td>
+                <td>URL de la imagen</td>
+            </tr>
+            <tr>
+                <td>preload</td>
+                <td>Especifica si el video debe precargarse</td>
+                <td>auto, metadata, none</td>
+            </tr>
+            <tr>
+                <td>width</td>
+                <td>Ancho del video en píxeles</td>
+                <td>Valor numérico</td>
+            </tr>
+            <tr>
+                <td>height</td>
+                <td>Alto del video en píxeles</td>
+                <td>Valor numérico</td>
+            </tr>
+            <tr>
+                <td>playsinline</td>
+                <td>Reproduce en línea (no pantalla completa) en iOS</td>
+                <td>No tiene valor (presencia = true)</td>
+            </tr>
+        </table>
+        
+        <h3>Ejemplo completo con todos los atributos</h3>
+        
+        <div class="multimedia-container">
+            <video controls autoplay loop muted poster="/api/placeholder/640/360" width="640" height="360" playsinline preload="auto">
+                <source src="/api/placeholder/640/360" type="video/mp4">
+                <source src="/api/placeholder/640/360" type="video/webm">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <div class="info-box">
+                <p>Este video tiene configurado:</p>
+                <ul>
+                    <li><strong>controls</strong>: Muestra los controles de reproducción</li>
+                    <li><strong>autoplay</strong>: Intenta reproducir automáticamente (muchos navegadores bloquean esto)</li>
+                    <li><strong>loop</strong>: Se repite al finalizar</li>
+                    <li><strong>muted</strong>: Comienza silenciado</li>
+                    <li><strong>poster</strong>: Muestra una imagen antes de reproducirse</li>
+                    <li><strong>width/height</strong>: Establece dimensiones específicas</li>
+                    <li><strong>playsinline</strong>: Reproduce dentro de la página en dispositivos iOS</li>
+                    <li><strong>preload="auto"</strong>: Sugiere precargar el video completo</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SECCIÓN 3: FORMATOS COMPATIBLES Y CONSIDERACIONES -->
+    <section id="formats-section">
+        <h2>3. Formatos Compatibles y Consideraciones</h2>
+        
+        <h3>Formatos de Audio Comunes</h3>
+        
+        <table>
+            <tr>
+                <th>Formato</th>
+                <th>Extensión</th>
+                <th>MIME Type</th>
+                <th>Compatibilidad</th>
+            </tr>
+            <tr>
+                <td>MP3</td>
+                <td>.mp3</td>
+                <td>audio/mpeg</td>
+                <td>Excelente (todos los navegadores modernos)</td>
+            </tr>
+            <tr>
+                <td>WAV</td>
+                <td>.wav</td>
+                <td>audio/wav</td>
+                <td>Buena (mayor tamaño de archivo)</td>
+            </tr>
+            <tr>
+                <td>OGG</td>
+                <td>.ogg</td>
+                <td>audio/ogg</td>
+                <td>Buena (no en Safari)</td>
+            </tr>
+            <tr>
+                <td>AAC</td>
+                <td>.aac, .m4a</td>
+                <td>audio/aac, audio/mp4</td>
+                <td>Buena (especialmente en Safari/iOS)</td>
+            </tr>
+        </table>
+        
+        <h3>Formatos de Video Comunes</h3>
+        
+        <table>
+            <tr>
+                <th>Formato</th>
+                <th>Extensión</th>
+                <th>MIME Type</th>
+                <th>Compatibilidad</th>
+            </tr>
+            <tr>
+                <td>MP4 (H.264)</td>
+                <td>.mp4</td>
+                <td>video/mp4</td>
+                <td>Excelente (todos los navegadores modernos)</td>
+            </tr>
+            <tr>
+                <td>WebM</td>
+                <td>.webm</td>
+                <td>video/webm</td>
+                <td>Muy buena (no en Safari antiguo)</td>
+            </tr>
+            <tr>
+                <td>OGG Theora</td>
+                <td>.ogv</td>
+                <td>video/ogg</td>
+                <td>Limitada (principalmente Firefox)</td>
+            </tr>
+        </table>
+        
+        <h3>Consideraciones importantes</h3>
+        
+        <div class="info-box">
+            <h4>Accesibilidad</h4>
+            <p>Para mejorar la accesibilidad, considere añadir:</p>
+            <ul>
+                <li><strong>Subtítulos</strong> con el elemento <code>&lt;track&gt;</code>:</li>
+            </ul>
+            <div class="code-example">&lt;video controls&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    &lt;track src="subtitulos.vtt" kind="subtitles" srclang="es" label="Español"&gt;
+&lt;/video&gt;</div>
+        </div>
+        
+        <div class="warning-box">
+            <h4>Consideraciones de rendimiento</h4>
+            <ul>
+                <li><strong>Tamaño de archivo</strong>: Los archivos multimedia pueden ser grandes. Optimiza tus archivos para web.</li>
+                <li><strong>Ancho de banda</strong>: Considera ofrecer diferentes calidades según la conexión del usuario.</li>
+                <li><strong>Reproductor alternativo</strong>: Proporciona una alternativa para navegadores antiguos.</li>
+                <li><strong>Preload</strong>: Usa <code>preload="none"</code> o <code>preload="metadata"</code> para páginas donde el multimedia no es el contenido principal.</li>
+            </ul>
+        </div>
+        
+        <div class="info-box">
+            <h4>Estrategias para autoplay</h4>
+            <p>Para conseguir que el autoplay funcione en navegadores modernos:</p>
+            <ul>
+                <li>Combinar <code>autoplay</code> con <code>muted</code></li>
+                <li>Iniciar la reproducción como respuesta a una interacción del usuario</li>
+                <li>Utilizar JavaScript para gestionar la reproducción</li>
+            </ul>
+            <div class="code-example">// Ejemplo de inicio con JavaScript tras interacción
+document.getElementById('boton-reproducir').addEventListener('click', function() {
+    document.getElementById('mi-video').play();
+});</div>
+        </div>
+        
+        <h3>Controles personalizados</h3>
+        
+        <p>Puedes crear tus propios controles de reproducción con JavaScript:</p>
+        
+        <div class="multimedia-container">
+            <video id="custom-video" width="100%" poster="/api/placeholder/640/360">
+                <source src="/api/placeholder/640/360" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            
+            <div style="margin-top: 10px; display: flex; gap: 10px;">
+                <button id="play-btn" style="padding: 5px 10px;">▶️ Reproducir</button>
+                <button id="pause-btn" style="padding: 5px 10px;">⏸️ Pausar</button>
+                <button id="mute-btn" style="padding: 5px 10px;">🔇 Silenciar</button>
+                <div style="flex-grow: 1; display: flex; align-items: center;">
+                    <input type="range" id="volume-control" min="0" max="1" step="0.1" value="1" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // Control personalizado para el video
+            const video = document.getElementById('custom-video');
+            const playBtn = document.getElementById('play-btn');
+            const pauseBtn = document.getElementById('pause-btn');
+            const muteBtn = document.getElementById('mute-btn');
+            const volumeControl = document.getElementById('volume-control');
+            
+            playBtn.addEventListener('click', function() {
+                video.play();
+            });
+            
+            pauseBtn.addEventListener('click', function() {
+                video.pause();
+            });
+            
+            muteBtn.addEventListener('click', function() {
+                video.muted = !video.muted;
+                muteBtn.textContent = video.muted ? '🔈 Activar sonido' : '🔇 Silenciar';
+            });
+            
+            volumeControl.addEventListener('input', function() {
+                video.volume = this.value;
+            });
+        </script>
+    </section>
+</body>
+</html>

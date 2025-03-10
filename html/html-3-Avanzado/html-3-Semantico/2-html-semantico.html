@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Semántico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        nav {
+            background-color: #333;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            padding: 15px 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        main {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        article {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        section {
+            margin-bottom: 15px;
+        }
+        
+        aside {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        figure {
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        figcaption {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 15px;
+        }
+        
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera de la página -->
+    <header>
+        <h1>HTML Semántico: Guía Práctica</h1>
+        <p>Aprende a estructurar tu sitio web con etiquetas semánticas</p>
+    </header>
+    
+    <!-- Navegación principal -->
+    <nav>
+        <ul>
+            <li><a href="#introduccion">Introducción</a></li>
+            <li><a href="#etiquetas">Etiquetas</a></li>
+            <li><a href="#accesibilidad">Accesibilidad</a></li>
+            <li><a href="#seo">SEO</a></li>
+            <li><a href="#figuras">Figuras</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Contenido principal -->
+    <main>
+        <div>
+            <article id="introduccion">
+                <h2>Introducción al HTML Semántico</h2>
+                <section>
+                    <p>El HTML semántico es la práctica de utilizar etiquetas HTML que transmiten significado sobre el contenido que contienen, en lugar de simplemente definir su apariencia.</p>
+                    <p>Esto facilita la comprensión del código tanto para desarrolladores como para tecnologías asistivas y motores de búsqueda.</p>
+                </section>
+            </article>
+            
+            <article id="etiquetas">
+                <h2>Etiquetas Semánticas Principales</h2>
+                <section>
+                    <h3>&lt;header&gt;</h3>
+                    <p>Define la cabecera de una página o sección. Normalmente contiene el logotipo, título y navegación principal.</p>
+                    
+                    <h3>&lt;nav&gt;</h3>
+                    <p>Sección dedicada a los enlaces de navegación principales del sitio.</p>
+                    
+                    <h3>&lt;main&gt;</h3>
+                    <p>Contiene el contenido principal de la página. Debe ser único en el documento.</p>
+                    
+                    <h3>&lt;article&gt;</h3>
+                    <p>Representa contenido autónomo que podría distribuirse o reutilizarse independientemente, como un post de blog o un artículo de noticias.</p>
+                    
+                    <h3>&lt;section&gt;</h3>
+                    <p>Representa una sección genérica de contenido, normalmente con un encabezado.</p>
+                    
+                    <h3>&lt;footer&gt;</h3>
+                    <p>Define el pie de página de una sección o de toda la página web.</p>
+                </section>
+            </article>
+            
+            <article id="accesibilidad">
+                <h2>Importancia para la Accesibilidad Web</h2>
+                <section>
+                    <p>El HTML semántico mejora significativamente la accesibilidad web por varias razones:</p>
+                    <ul>
+                        <li>Los lectores de pantalla pueden interpretar mejor la estructura de la página.</li>
+                        <li>Facilita la navegación mediante teclado al proporcionar puntos de referencia claros.</li>
+                        <li>Ayuda a los usuarios con discapacidades cognitivas a entender mejor la organización del contenido.</li>
+                        <li>Permite que las tecnologías asistivas identifiquen correctamente cada parte de la página.</li>
+                    </ul>
+                </section>
+            </article>
+            
+            <article id="seo">
+                <h2>Mejoras en SEO mediante HTML Semántico</h2>
+                <section>
+                    <p>El HTML semántico también beneficia el posicionamiento en buscadores (SEO):</p>
+                    <ul>
+                        <li>Los motores de búsqueda comprenden mejor la estructura y el propósito del contenido.</li>
+                        <li>Mejora la relevancia del contenido para búsquedas específicas.</li>
+                        <li>Facilita la indexación correcta de las diferentes secciones de la página.</li>
+                        <li>Ayuda a los algoritmos a identificar el contenido principal versus el secundario.</li>
+                    </ul>
+                </section>
+            </article>
+            
+            <article id="figuras">
+                <h2>Uso de &lt;figure&gt; y &lt;figcaption&gt;</h2>
+                <section>
+                    <p>Las etiquetas &lt;figure&gt; y &lt;figcaption&gt; son especialmente útiles para contenido ilustrativo:</p>
+                    
+                    <figure>
+                        <img src="/api/placeholder/600/400" alt="Ejemplo de estructura HTML semántica">
+                        <figcaption>Figura 1: Estructura básica de una página con HTML semántico</figcaption>
+                    </figure>
+                    
+                    <p>La etiqueta &lt;figure&gt; representa contenido autocontenido, normalmente una imagen, diagrama o fragmento de código, mientras que &lt;figcaption&gt; proporciona una descripción o título para ese contenido.</p>
+                    
+                    <p>Estas etiquetas mejoran la accesibilidad al asociar explícitamente una imagen con su descripción, permitiendo a los lectores de pantalla transmitir esta relación a los usuarios.</p>
+                </section>
+            </article>
+        </div>
+        
+        <aside>
+            <h3>Recursos Adicionales</h3>
+            <ul>
+                <li>MDN Web Docs - Elementos HTML</li>
+                <li>W3C - Especificación HTML5</li>
+                <li>WebAIM - Accesibilidad Web</li>
+                <li>Google Search Central - Guía de SEO</li>
+            </ul>
+            
+            <h3>Beneficios del HTML Semántico</h3>
+            <ul>
+                <li>Código más mantenible y limpio</li>
+                <li>Mejor accesibilidad</li>
+                <li>Mejora del SEO</li>
+                <li>Facilidad para aplicar estilos CSS</li>
+                <li>Mayor compatibilidad con dispositivos</li>
+            </ul>
+        </aside>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Tutorial de HTML Semántico CEFIT</p>
+        <p>Creado como ejemplo para  las etiquetas semánticas en HTML5</p>
+    </footer>
+</body>
+</html>

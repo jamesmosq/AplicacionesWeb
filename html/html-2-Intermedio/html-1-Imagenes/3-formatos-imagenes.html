@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatos de imágenes para web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+        .formato {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .comparacion {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .imagen-ejemplo {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .color-indicador {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .excelente { background-color: #4CAF50; }
+        .bueno { background-color: #8BC34A; }
+        .medio { background-color: #FFC107; }
+        .bajo { background-color: #FF9800; }
+        .malo { background-color: #F44336; }
+    </style>
+</head>
+<body>
+    <h1>Formatos de imágenes para web</h1>
+    
+    <p>Elegir el formato de imagen correcto es esencial para optimizar el rendimiento y la calidad visual de tu sitio web.</p>
+
+    <table>
+        <tr>
+            <th>Formato</th>
+            <th>Extensión</th>
+            <th>Compresión</th>
+            <th>Transparencia</th>
+            <th>Animación</th>
+            <th>Mejor para</th>
+        </tr>
+        <tr>
+            <td>JPEG</td>
+            <td>.jpg, .jpeg</td>
+            <td>Con pérdida</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Fotografías, imágenes con muchos colores</td>
+        </tr>
+        <tr>
+            <td>PNG</td>
+            <td>.png</td>
+            <td>Sin pérdida</td>
+            <td>Sí</td>
+            <td>No</td>
+            <td>Gráficos, logos, imágenes con transparencia</td>
+        </tr>
+        <tr>
+            <td>GIF</td>
+            <td>.gif</td>
+            <td>Sin pérdida</td>
+            <td>Sí (binaria)</td>
+            <td>Sí</td>
+            <td>Animaciones simples, imágenes con pocos colores</td>
+        </tr>
+        <tr>
+            <td>SVG</td>
+            <td>.svg</td>
+            <td>Sin pérdida</td>
+            <td>Sí</td>
+            <td>Sí (con CSS/JS)</td>
+            <td>Iconos, logos, ilustraciones, gráficos simples</td>
+        </tr>
+        <tr>
+            <td>WebP</td>
+            <td>.webp</td>
+            <td>Con/sin pérdida</td>
+            <td>Sí</td>
+            <td>Sí</td>
+            <td>Alternativa moderna para JPEG y PNG</td>
+        </tr>
+        <tr>
+            <td>AVIF</td>
+            <td>.avif</td>
+            <td>Con/sin pérdida</td>
+            <td>Sí</td>
+            <td>Sí</td>
+            <td>Formato de próxima generación, mejor que WebP</td>
+        </tr>
+    </table>
+
+    <h2>Comparación de características</h2>
+    
+    <table>
+        <tr>
+            <th>Formato</th>
+            <th>Calidad</th>
+            <th>Tamaño de archivo</th>
+            <th>Compatibilidad</th>
+            <th>Escalabilidad</th>
+        </tr>
+        <tr>
+            <td>JPEG</td>
+            <td><span class="color-indicador bueno"></span> Buena</td>
+            <td><span class="color-indicador bueno"></span> Pequeño</td>
+            <td><span class="color-indicador excelente"></span> Excelente</td>
+            <td><span class="color-indicador bajo"></span> Baja</td>
+        </tr>
+        <tr>
+            <td>PNG</td>
+            <td><span class="color-indicador excelente"></span> Excelente</td>
+            <td><span class="color-indicador medio"></span> Grande</td>
+            <td><span class="color-indicador excelente"></span> Excelente</td>
+            <td><span class="color-indicador bajo"></span> Baja</td>
+        </tr>
+        <tr>
+            <td>GIF</td>
+            <td><span class="color-indicador bajo"></span> Limitada</td>
+            <td><span class="color-indicador medio"></span> Medio</td>
+            <td><span class="color-indicador excelente"></span> Excelente</td>
+            <td><span class="color-indicador malo"></span> Muy baja</td>
+        </tr>
+        <tr>
+            <td>SVG</td>
+            <td><span class="color-indicador excelente"></span> Perfecta</td>
+            <td><span class="color-indicador excelente"></span> Muy pequeño</td>
+            <td><span class="color-indicador bueno"></span> Buena</td>
+            <td><span class="color-indicador excelente"></span> Infinita</td>
+        </tr>
+        <tr>
+            <td>WebP</td>
+            <td><span class="color-indicador excelente"></span> Excelente</td>
+            <td><span class="color-indicador excelente"></span> Muy pequeño</td>
+            <td><span class="color-indicador medio"></span> Media</td>
+            <td><span class="color-indicador bajo"></span> Baja</td>
+        </tr>
+        <tr>
+            <td>AVIF</td>
+            <td><span class="color-indicador excelente"></span> Excelente</td>
+            <td><span class="color-indicador excelente"></span> El más pequeño</td>
+            <td><span class="color-indicador bajo"></span> Limitada</td>
+            <td><span class="color-indicador bajo"></span> Baja</td>
+        </tr>
+    </table>
+
+    <div class="formato">
+        <h2>JPEG (Joint Photographic Experts Group)</h2>
+        <p>JPEG es el formato más común para fotografías en la web debido a su buena compresión y compatibilidad universal.</p>
+        
+        <div class="imagen-ejemplo">
+            <img src="https://via.placeholder.com/300x200" alt="Ejemplo de imagen JPEG">
+        </div>
+        
+        <h3>Características principales:</h3>
+        <ul>
+            <li><strong>Compresión con pérdida:</strong> Reduce el tamaño del archivo eliminando datos de imagen, lo que puede afectar la calidad.</li>
+            <li><strong>Millones de colores:</strong> Ideal para fotografías y gradientes.</li>
+            <li><strong>Sin transparencia:</strong> No admite áreas transparentes.</li>
+            <li><strong>Sin animación:</strong> No permite crear GIFs animados.</li>
+        </ul>
+        
+        <h3>Mejor para:</h3>
+        <ul>
+            <li>Fotografías</li>
+            <li>Imágenes con muchos colores y detalles</li>
+            <li>Banners e imágenes de fondo</li>
+        </ul>
+        
+        <h3>Desventajas:</h3>
+        <ul>
+            <li>La compresión puede causar pérdida de calidad visible (artifacts)</li>
+            <li>No es adecuado para gráficos con texto</li>
+            <li>No soporta transparencia</li>
+        </ul>
+    </div>
+
+    <div class="formato">
+        <h2>PNG (Portable Network Graphics)</h2>
+        <p>PNG fue creado como una alternativa libre de patentes a GIF, ofreciendo mejor compresión y más características.</p>
+        
+        <div class="imagen-ejemplo">
+            <img src="https://via.placeholder.com/300x200" alt="Ejemplo de imagen PNG">
+        </div>
+        
+        <h3>Características principales:</h3>
+        <ul>
+            <li><strong>Compresión sin pérdida:</strong> Mantiene toda la calidad de la imagen original.</li>
+            <li><strong>Transparencia alfa:</strong> Soporta transparencia parcial (no solo transparente/opaco).</li>
+            <li><strong>Millones de colores:</strong> No tiene limitaciones de color como GIF.</li>
+            <li><strong>Sin animación:</strong> No permite crear animaciones.</li>
+        </ul>
+        
+        <h3>Mejor para:</h3>
+        <ul>
+            <li>Logos, íconos y gráficos</li>
+            <li>Imágenes que requieren transparencia</li>
+            <li>Screenshots y gráficos con texto</li>
+        </ul>
+        
+        <h3>Desventajas:</h3>
+        <ul>
+            <li>Archivos más grandes que JPEG para fotografías</li>
+            <li>No soporta animación</li>
+        </ul>
+    </div>
+
+    <div class="formato">
+        <h2>GIF (Graphics Interchange Format)</h2>
+        <p>GIF es un formato antiguo pero ampliamente utilizado, especialmente para animaciones simples.</p>
+        
+        <div class="imagen-ejemplo">
+            <img src="https://via.placeholder.com/300x200" alt="Ejemplo de imagen GIF estática">
+        </div>
+        
+        <h3>Características principales:</h3>
+        <ul>
+            <li><strong>Animación:</strong> Puede contener múltiples cuadros para crear animaciones.</li>
+            <li><strong>Transparencia binaria:</strong> Solo transparente u opaco, sin valores intermedios.</li>
+            <li><strong>Limitado a 256 colores:</strong> No es adecuado para fotografías realistas.</li>
+            <li><strong>Compresión sin pérdida:</strong> No degrada la calidad de la imagen.</li>
+        </ul>
+        
+        <h3>Mejor para:</h3>
+        <ul>
+            <li>Animaciones simples</li>
+            <li>Ilustraciones con pocos colores</li>
+            <li>Imágenes con áreas de color sólido</li>
+        </ul>
+        
+        <h3>Desventajas:</h3>
+        <ul>
+            <li>Limitado a 256 colores por cuadro</li>
+            <li>Las animaciones pueden tener archivos grandes</li>
+            <li>Transparencia limitada (solo binaria)</li>
+        </ul>
+    </div>
+
+    <div class="formato">
+        <h2>SVG (Scalable Vector Graphics)</h2>
+        <p>SVG es un formato basado en XML para gráficos vectoriales, que se mantienen nítidos a cualquier tamaño.</p>
+        
+        <div class="imagen-ejemplo">
+            <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#f0f0f0"/>
+                <circle cx="150" cy="100" r="50" fill="#007bff"/>
+                <rect x="130" y="80" width="40" height="40" fill="#ffffff"/>
+            </svg>
+        </div>
+        
+        <h3>Características principales:</h3>
+        <ul>
+            <li><strong>Gráficos vectoriales:</strong> Basado en formas matemáticas, no en píxeles.</li>
+            <li><strong>Escalable infinitamente:</strong> Se ve nítido a cualquier tamaño.</li>
+            <li><strong>Editable con código:</strong> Se puede modificar con CSS y JavaScript.</li>
+            <li><strong>Animable:</strong> Se puede animar con CSS o JavaScript.</li>
+            <li><strong>Accesible:</strong> El texto dentro de SVG es seleccionable y accesible.</li>
+        </ul>
+        
+        <h3>Mejor para:</h3>
+        <ul>
+            <li>Logos e iconos</li>
+            <li>Ilustraciones y gráficos simples</li>
+            <li>Gráficas e infografías</li>
+            <li>Animaciones basadas en vectores</li>
+        </ul>
+        
+        <h3>Desventajas:</h3>
+        <ul>
+            <li>No adecuado para fotografías</li>
+            <li>Puede tener problemas de rendimiento con gráficos muy complejos</li>
+            <li>Compatibilidad limitada con navegadores muy antiguos</li>
+        </ul>
+    </div>
+
+    <div class="formato">
+        <h2>WebP</h2>
+        <p>WebP es un formato moderno desarrollado por Google que ofrece mejor compresión que JPEG y PNG.</p>
+        
+        <div class="imagen-ejemplo">
+            <img src="https://via.placeholder.com/300x200" alt="Representación de WebP (placeholder)">
+        </div>
+        
+        <h3>Características principales:</h3>
+        <ul>
+            <li><strong>Compresión superior:</strong> 25-35% más pequeño que JPEG con la misma calidad visual.</li>
+            <li><strong>Soporte para transparencia:</strong> Similar a PNG pero con archivos más pequeños.</li>
+            <li><strong>Soporte para animación:</strong> Alternativa más eficiente a GIF.</li>
+            <li><strong>Compresión con y sin pérdida:</strong> Versatilidad para diferentes necesidades.</li>
+        </ul>
+        
+        <h3>Mejor para:</h3>
+        <ul>
+            <li>Reemplazo moderno para JPEG, PNG y GIF</li>
+            <li>Sitios web que priorizan la velocidad de carga</li>
+            <li>Fotografías, gráficos y animaciones</li>
+        </ul>
+        
+        <h3>Desventajas:</h3>
+        <ul>
+            <li>No compatible con navegadores antiguos (aunque se puede usar con fallbacks)</li>
+            <li>No tan ampliamente aceptado como JPEG o PNG en software de edición</li>
+        </ul>
+    </div>
+</body>
+</html>

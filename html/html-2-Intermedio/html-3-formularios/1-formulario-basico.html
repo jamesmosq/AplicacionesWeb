@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios HTML - Estructura Básica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #3498db;
+            margin-top: 30px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        form {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .explicacion {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 20px;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, monospace;
+            color: #e74c3c;
+        }
+        .codigo {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formularios HTML - Estructura Básica</h1>
+        
+        <div class="explicacion">
+            <p>Los formularios HTML permiten recopilar información de los usuarios. La estructura básica de un formulario se define con la etiqueta <code>&lt;form&gt;</code>.</p>
+            <p>Atributos importantes de la etiqueta <code>&lt;form&gt;</code>:</p>
+            <ul>
+                <li><code>action</code>: URL donde se enviarán los datos del formulario</li>
+                <li><code>method</code>: Método HTTP utilizado para enviar los datos (GET o POST)</li>
+                <li><code>name</code>: Nombre del formulario para referenciarlo con JavaScript</li>
+            </ul>
+        </div>
+        
+        <h2>Ejemplo de Formulario Básico</h2>
+        
+        <form action="/procesar.php" method="post" name="formularioContacto">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+            
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email">
+            
+            <label for="mensaje">Mensaje:</label>
+            <input type="text" id="mensaje" name="mensaje">
+            
+            <button type="submit">Enviar</button>
+        </form>
+        
+        <div class="codigo">
+            <pre>
+&lt;form action="/procesar.php" method="post" name="formularioContacto"&gt;
+    &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" id="nombre" name="nombre"&gt;
+    
+    &lt;label for="email"&gt;Correo electrónico:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email"&gt;
+    
+    &lt;label for="mensaje"&gt;Mensaje:&lt;/label&gt;
+    &lt;input type="text" id="mensaje" name="mensaje"&gt;
+    
+    &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+            </pre>
+        </div>
+        
+        <div class="explicacion">
+            <h3>Elementos clave en un formulario:</h3>
+            <ul>
+                <li><strong>Etiquetas (label)</strong>: Describen el propósito de cada campo</li>
+                <li><strong>Campos de entrada (input)</strong>: Permiten al usuario ingresar datos</li>
+                <li><strong>Botones</strong>: Permiten enviar o resetear el formulario</li>
+            </ul>
+            <p>Es una buena práctica siempre asociar una etiqueta <code>&lt;label&gt;</code> con su campo correspondiente usando el atributo <code>for</code> que coincide con el <code>id</code> del campo.</p>
+        </div>
+        
+        <h2>Estructura de un formulario más completo</h2>
+        
+        <form action="/procesar-avanzado.php" method="post">
+            <fieldset>
+                <legend>Información Personal</legend>
+                
+                <label for="nombre2">Nombre:</label>
+                <input type="text" id="nombre2" name="nombre">
+                
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido">
+            </fieldset>
+            
+            <fieldset>
+                <legend>Información de Contacto</legend>
+                
+                <label for="email2">Correo electrónico:</label>
+                <input type="email" id="email2" name="email">
+                
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono">
+            </fieldset>
+            
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpiar</button>
+        </form>
+        
+        <div class="codigo">
+            <pre>
+&lt;form action="/procesar-avanzado.php" method="post"&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Información Personal&lt;/legend&gt;
+        
+        &lt;label for="nombre2"&gt;Nombre:&lt;/label&gt;
+        &lt;input type="text" id="nombre2" name="nombre"&gt;
+        
+        &lt;label for="apellido"&gt;Apellido:&lt;/label&gt;
+        &lt;input type="text" id="apellido" name="apellido"&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;fieldset&gt;
+        &lt;legend&gt;Información de Contacto&lt;/legend&gt;
+        
+        &lt;label for="email2"&gt;Correo electrónico:&lt;/label&gt;
+        &lt;input type="email" id="email2" name="email"&gt;
+        
+        &lt;label for="telefono"&gt;Teléfono:&lt;/label&gt;
+        &lt;input type="tel" id="telefono" name="telefono"&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+    &lt;button type="reset"&gt;Limpiar&lt;/button&gt;
+&lt;/form&gt;
+            </pre>
+        </div>
+        
+        <div class="explicacion">
+            <h3>Organización con fieldset y legend:</h3>
+            <ul>
+                <li><code>&lt;fieldset&gt;</code>: Agrupa campos relacionados</li>
+                <li><code>&lt;legend&gt;</code>: Proporciona un título al grupo fieldset</li>
+            </ul>
+            <p>Esto mejora la organización y accesibilidad del formulario, especialmente para formularios más grandes.</p>
+        </div>
+    </div>
+</body>
+</html>

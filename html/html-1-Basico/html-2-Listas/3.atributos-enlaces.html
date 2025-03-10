@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos avanzados de enlaces</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .ejemplo {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Atributos avanzados de enlaces en HTML</h1>
+    
+    <h2>Tabla de atributos de enlaces</h2>
+    <table>
+        <tr>
+            <th>Atributo</th>
+            <th>Descripción</th>
+            <th>Valores comunes</th>
+        </tr>
+        <tr>
+            <td>href</td>
+            <td>La URL a la que apunta el enlace</td>
+            <td>URL, ruta relativa, #id-interno</td>
+        </tr>
+        <tr>
+            <td>target</td>
+            <td>Dónde abrir el enlace</td>
+            <td>_blank, _self, _parent, _top</td>
+        </tr>
+        <tr>
+            <td>rel</td>
+            <td>La relación entre la página actual y la página enlazada</td>
+            <td>nofollow, noreferrer, noopener, external</td>
+        </tr>
+        <tr>
+            <td>title</td>
+            <td>Información adicional sobre el enlace (aparece como tooltip)</td>
+            <td>Texto descriptivo</td>
+        </tr>
+        <tr>
+            <td>download</td>
+            <td>Indica que el recurso debe descargarse</td>
+            <td>Nombre de archivo o vacío</td>
+        </tr>
+        <tr>
+            <td>hreflang</td>
+            <td>El idioma del documento enlazado</td>
+            <td>es, en, fr, etc.</td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>El tipo MIME del recurso enlazado</td>
+            <td>text/html, image/jpeg, application/pdf</td>
+        </tr>
+    </table>
+    
+    <h2>Ejemplos prácticos</h2>
+    
+    <div class="ejemplo">
+        <h3>Target: Controlar dónde se abre el enlace</h3>
+        <p><a href="https://www.example.com" target="_blank">Abrir en nueva pestaña (_blank)</a></p>
+        <p><a href="https://www.example.com" target="_self">Abrir en la misma pestaña (_self)</a></p>
+        <p><a href="https://www.example.com" target="_parent">Abrir en el marco padre (_parent)</a></p>
+        <p><a href="https://www.example.com" target="_top">Abrir en la ventana completa (_top)</a></p>
+        <p>Nota: Los valores _parent y _top son útiles cuando se trabaja con marcos (frames) o iframes.</p>
+    </div>
+    
+    <div class="ejemplo">
+        <h3>Rel: Definir relaciones</h3>
+        <p><a href="https://www.example.com" rel="nofollow">Nofollow: Indica a los buscadores que no sigan este enlace</a></p>
+        <p><a href="https://www.example.com" rel="noreferrer">Noreferrer: No envía información de referencia</a></p>
+        <p><a href="https://www.example.com" rel="noopener">Noopener: Previene que la nueva página acceda a window.opener</a></p>
+        <p><a href="https://www.example.com" rel="external">External: Indica que es un enlace externo</a></p>
+        <p><a href="https://www.example.com" rel="nofollow noreferrer noopener">Combinación de valores</a></p>
+    </div>
+    
+    <div class="ejemplo">
+        <h3>Download: Descargar archivos</h3>
+        <p><a href="archivo.pdf" download>Descargar archivo con nombre original</a></p>
+        <p><a href="archivo.pdf" download="mi-documento.pdf">Descargar archivo con nombre personalizado</a></p>
+        <p>Nota: El atributo download solo funciona para enlaces del mismo origen por razones de seguridad.</p>
+    </div>
+    
+    <div class="ejemplo">
+        <h3>Title: Proporcionar información adicional</h3>
+        <p>
+            <a href="https://www.example.com" title="Este es un sitio web de ejemplo utilizado para propósitos educativos">
+                Pasa el cursor sobre este enlace para ver el tooltip
+            </a>
+        </p>
+    </div>
+    
+    <div class="ejemplo">
+        <h3>Hreflang: Especificar el idioma del enlace</h3>
+        <p><a href="https://www.example.es" hreflang="es">Versión en español</a></p>
+        <p><a href="https://www.example.com" hreflang="en">English version</a></p>
+    </div>
+    
+    <div class="ejemplo">
+        <h3>Type: Especificar el tipo MIME</h3>
+        <p><a href="documento.pdf" type="application/pdf">Documento PDF</a></p>
+        <p><a href="imagen.jpg" type="image/jpeg">Imagen JPEG</a></p>
+    </div>
+    
+    <h2>Combinando atributos</h2>
+    <p>
+        <a href="https://www.example.com" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           title="Sitio web de ejemplo (abre en nueva pestaña)">
+            Enlace con múltiples atributos
+        </a>
+    </p>
+    
+    <h2>Buenas prácticas</h2>
+    <ul>
+        <li>Siempre usa <code>rel="noopener noreferrer"</code> con <code>target="_blank"</code> por seguridad</li>
+        <li>Usa títulos descriptivos que aporten información adicional, no repitas el texto del enlace</li>
+        <li>Asegúrate de que el texto del enlace sea descriptivo (evita "haz clic aquí" o "más")</li>
+        <li>Usa <code>rel="nofollow"</code> para enlaces que no quieras avalar o para enlaces pagados</li>
+    </ul>
+</body>
+</html>

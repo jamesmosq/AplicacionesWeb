@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Desarrollo Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .tema {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .volver-arriba {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #444;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header id="inicio">
+        <h1>Curso de Desarrollo Web</h1>
+        <p>Fundamentos de HTML: Listas y Enlaces</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#listas">Listas HTML</a></li>
+            <li><a href="#enlaces">Enlaces HTML</a></li>
+            <li><a href="#ejercicios">Ejercicios prácticos</a></li>
+            <li><a href="#recursos" target="_blank">Recursos externos</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="listas" class="tema">
+            <h2>Tipos de listas en HTML</h2>
+            
+            <h3>Listas no ordenadas</h3>
+            <p>Se utilizan cuando el orden de los elementos no es importante:</p>
+            <ul>
+                <li>Característica principal: elementos precedidos por viñetas</li>
+                <li>Etiqueta principal: <code>&lt;ul&gt;</code></li>
+                <li>Cada elemento se define con: <code>&lt;li&gt;</code></li>
+            </ul>
+            
+            <h3>Listas ordenadas</h3>
+            <p>Se utilizan cuando el orden de los elementos es importante:</p>
+            <ol>
+                <li>Paso 1: Planificar la estructura</li>
+                <li>Paso 2: Escribir el HTML</li>
+                <li>Paso 3: Aplicar estilos con CSS</li>
+                <li>Paso 4: Añadir interactividad con JavaScript</li>
+            </ol>
+            
+            <h3>Listas de definición</h3>
+            <p>Se utilizan para crear listas de términos y sus definiciones:</p>
+            <dl>
+                <dt>HTML</dt>
+                <dd>HyperText Markup Language - Lenguaje estándar para crear páginas web.</dd>
+                
+                <dt>CSS</dt>
+                <dd>Cascading Style Sheets - Lenguaje utilizado para describir la presentación de documentos HTML.</dd>
+                
+                <dt>JavaScript</dt>
+                <dd>Lenguaje de programación que permite crear contenido dinámico en páginas web.</dd>
+            </dl>
+            
+            <p><a href="#inicio">Volver al inicio</a></p>
+        </section>
+
+        <section id="enlaces" class="tema">
+            <h2>Enlaces en HTML</h2>
+            
+            <h3>Enlaces externos</h3>
+            <p>Los enlaces externos dirigen a páginas fuera de nuestro sitio web:</p>
+            <ul>
+                <li><a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer">MDN Web Docs</a> - Documentación completa sobre desarrollo web</li>
+                <li><a href="https://www.w3schools.com" target="_blank" rel="noopener noreferrer">W3Schools</a> - Tutoriales y referencias sobre tecnologías web</li>
+            </ul>
+            
+            <h3>Enlaces internos</h3>
+            <p>Los enlaces internos permiten la navegación dentro de la misma página:</p>
+            <ul>
+                <li><a href="#listas">Ir a la sección de listas</a></li>
+                <li><a href="#ejercicios">Ir a los ejercicios prácticos</a></li>
+            </ul>
+            
+            <h3>Atributos importantes</h3>
+            <dl>
+                <dt>href</dt>
+                <dd>Especifica la URL de destino del enlace.</dd>
+                
+                <dt>target</dt>
+                <dd>Define dónde se abrirá el enlace (ej. <code>_blank</code> para una nueva pestaña).</dd>
+                
+                <dt>rel</dt>
+                <dd>Especifica la relación entre la página actual y la página enlazada.</dd>
+                
+                <dt>title</dt>
+                <dd>Proporciona información adicional que aparece como tooltip.</dd>
+            </dl>
+            
+            <p><a href="#inicio">Volver al inicio</a></p>
+        </section>
+
+        <section id="ejercicios" class="tema">
+            <h2>Ejercicios prácticos</h2>
+            
+            <h3>Ejercicio 1: Crear un menú de navegación</h3>
+            <p>Crea un menú de navegación utilizando una lista no ordenada y enlaces.</p>
+            
+            <h3>Ejercicio 2: Lista de definiciones</h3>
+            <p>Crea una lista de definiciones con al menos 5 términos relacionados con el desarrollo web.</p>
+            
+            <h3>Ejercicio 3: Enlaces con diferentes atributos</h3>
+            <p>Crea una página con enlaces que utilicen los atributos target, rel y title de diferentes maneras.</p>
+            
+            <p><a href="#inicio">Volver al inicio</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Curso de Desarrollo Web &copy; 2025</p>
+        <p>
+            <a href="mailto:ejemplo@correo.com">contacto@cursoweb.com</a> | 
+            <a href="tel:+123456789">Tel: +123 456 789</a>
+        </p>
+    </footer>
+
+    <a href="#inicio" class="volver-arriba">↑</a>
+</body>
+</html>

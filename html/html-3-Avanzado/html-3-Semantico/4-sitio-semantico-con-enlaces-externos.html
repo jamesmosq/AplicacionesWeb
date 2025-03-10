@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechHub - Centro de Tecnología y Programación</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Estilos para el header */
+        header {
+            background-color: #2a4365;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: #4fd1c5;
+        }
+        
+        /* Navegación - Destacada para enlaces externos e internos */
+        nav {
+            background-color: #3c5c8e;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        nav li {
+            padding: 0 5px;
+        }
+        
+        /* Diferenciamos visualmente los enlaces internos y externos */
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav a.internal {
+            background-color: #4fd1c5;
+        }
+        
+        nav a.external {
+            background-color: #805ad5;
+        }
+        
+        nav a.internal:hover {
+            background-color: #38b2ac;
+        }
+        
+        nav a.external:hover {
+            background-color: #6b46c1;
+        }
+        
+        /* Pequeño ícono para enlaces externos (simulado con caracteres) */
+        .external-icon {
+            font-size: 12px;
+        }
+        
+        /* Main content */
+        main {
+            padding: 40px 0;
+        }
+        
+        /* Hero section */
+        .hero {
+            background-color: #e6fffa;
+            padding: 60px 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+            background-image: linear-gradient(to right, rgba(79, 209, 197, 0.1), rgba(128, 90, 213, 0.1));
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: #2c5282;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #4fd1c5;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #38b2ac;
+        }
+        
+        /* Contenido principal y barra lateral */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        article {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        article h2 {
+            color: #2c5282;
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-bottom: 2px solid #e6fffa;
+            padding-bottom: 10px;
+        }
+        
+        article h3 {
+            color: #3182ce;
+            margin: 25px 0 15px;
+            font-size: 22px;
+        }
+        
+        article p {
+            margin-bottom: 15px;
+        }
+        
+        section {
+            margin-bottom: 30px;
+        }
+        
+        /* Figure y figcaption */
+        figure {
+            margin: 25px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        figcaption {
+            background-color: #e6fffa;
+            padding: 15px;
+            font-style: italic;
+            color: #2c5282;
+            text-align: center;
+        }
+        
+        /* Aside (barra lateral) */
+        aside {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            height: fit-content;
+        }
+        
+        aside h3 {
+            color: #2c5282;
+            border-bottom: 2px solid #e6fffa;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        aside ul {
+            margin-left: 20px;
+            margin-bottom: 25px;
+        }
+        
+        aside li {
+            margin-bottom: 10px;
+        }
+        
+        .card {
+            background-color: #f0fdf4;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4fd1c5;
+        }
+        
+        .card h4 {
+            color: #2c5282;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2a4365;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+            color: #4fd1c5;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #4fd1c5;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Estilos para listas */
+        .feature-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .feature-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            color: #4fd1c5;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera semántica -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Tech<span>Hub</span></div>
+                <p>Tu centro de recursos sobre tecnología y programación</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navegación semántica con enlaces internos y externos -->
+    <nav>
+        <div class="container">
+            <ul>
+                <!-- Enlaces internos -->
+                <li><a href="#inicio" class="internal">Inicio</a></li>
+                <li><a href="#cursos" class="internal">Cursos</a></li>
+                <li><a href="#recursos" class="internal">Recursos</a></li>
+                <li><a href="#blog" class="internal">Blog</a></li>
+                <li><a href="#contacto" class="internal">Contacto</a></li>
+                
+                <!-- Enlaces externos -->
+                <li><a href="https://developer.mozilla.org" target="_blank" class="external">MDN Web Docs <span class="external-icon">↗</span></a></li>
+                <li><a href="https://github.com" target="_blank" class="external">GitHub <span class="external-icon">↗</span></a></li>
+                <li><a href="https://stackoverflow.com" target="_blank" class="external">Stack Overflow <span class="external-icon">↗</span></a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Contenido principal semántico -->
+    <main>
+        <div class="container">
+            <!-- Sección hero -->
+            <section id="inicio" class="hero">
+                <h1>Aprende, Crea y Comparte Tecnología</h1>
+                <p>Descubre recursos, tutoriales y herramientas para mejorar tus habilidades de programación y mantenerte al día con las últimas tendencias tecnológicas.</p>
+                <a href="#cursos" class="btn">Explorar Cursos</a>
+            </section>
+            
+            <!-- Contenedor de contenido principal y barra lateral -->
+            <div class="content-wrapper">
+                <!-- Contenido principal -->
+                <div>
+                    <!-- Artículo semántico 1 -->
+                    <article id="cursos">
+                        <h2>Cursos Recomendados</h2>
+                        
+                        <section>
+                            <h3>Desarrollo Web Frontend</h3>
+                            <p>Aprende a crear interfaces web atractivas y funcionales utilizando las tecnologías más demandadas en la industria.</p>
+                            
+                            <!-- Uso de figure y figcaption -->
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Captura de pantalla mostrando código HTML, CSS y JavaScript en un editor de código">
+                                <figcaption>HTML semántico, CSS avanzado y JavaScript moderno son los pilares del desarrollo frontend</figcaption>
+                            </figure>
+                            
+                            <p>Nuestros cursos de desarrollo frontend cubren desde los fundamentos del HTML semántico hasta frameworks avanzados como React, Vue y Angular. Cada curso incluye proyectos prácticos para aplicar lo aprendido.</p>
+                            
+                            <ul class="feature-list">
+                                <li>HTML5 semántico y accesibilidad web</li>
+                                <li>CSS moderno con Flexbox, Grid y animaciones</li>
+                                <li>JavaScript ES6+ y programación asíncrona</li>
+                                <li>Frameworks y bibliotecas populares</li>
+                            </ul>
+                        </section>
+                        
+                        <section>
+                            <h3>Desarrollo Backend</h3>
+                            <p>Domina el arte de crear servidores robustos, APIs eficientes y bases de datos escalables para potenciar tus aplicaciones web.</p>
+                            
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Diagrama de arquitectura de una aplicación backend con bases de datos y servicios">
+                                <figcaption>Una arquitectura backend bien diseñada es fundamental para aplicaciones escalables</figcaption>
+                            </figure>
+                            
+                            <p>Nuestros cursos de backend te llevan desde los conceptos básicos hasta implementaciones avanzadas con diferentes tecnologías y lenguajes de programación.</p>
+                            
+                            <ul class="feature-list">
+                                <li>Node.js y Express para APIs RESTful</li>
+                                <li>Python con Django y Flask</li>
+                                <li>Bases de datos SQL y NoSQL</li>
+                                <li>Arquitecturas de microservicios</li>
+                            </ul>
+                        </section>
+                    </article>
+                    
+                    <!-- Artículo semántico 2 -->
+                    <article id="recursos">
+                        <h2>Recursos de Aprendizaje</h2>
+                        
+                        <section>
+                            <h3>Documentación y Referencias</h3>
+                            <p>Accede a una colección curada de documentación técnica, guías de referencia y manuales para diversas tecnologías y lenguajes de programación.</p>
+                            
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Biblioteca digital con recursos técnicos organizados por categorías">
+                                <figcaption>Nuestra biblioteca digital contiene recursos actualizados y bien organizados</figcaption>
+                            </figure>
+                            
+                            <p>Mantenemos una biblioteca de recursos constantemente actualizada con las mejores referencias para cada tecnología. Esto incluye documentación oficial, tutoriales interactivos y ejemplos de código.</p>
+                        </section>
+                        
+                        <section>
+                            <h3>Herramientas de Desarrollo</h3>
+                            <p>Descubre las herramientas que utilizan los profesionales para aumentar su productividad y mejorar la calidad de su código.</p>
+                            
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Interfaz de usuario de diversas herramientas de desarrollo y editores de código">
+                                <figcaption>Las herramientas adecuadas pueden multiplicar tu productividad como desarrollador</figcaption>
+                            </figure>
+                            
+                            <p>Desde editores de código y entornos de desarrollo integrados hasta herramientas de control de versiones y automatización, te ayudamos a configurar tu entorno de trabajo ideal.</p>
+                        </section>
+                    </article>
+                    
+                    <!-- Artículo semántico 3 -->
+                    <article id="blog">
+                        <h2>Últimas Publicaciones</h2>
+                        
+                        <section>
+                            <h3>La Importancia del HTML Semántico</h3>
+                            <p>El HTML semántico es fundamental para crear sitios web accesibles, mejor posicionados en buscadores y más fáciles de mantener. En este artículo exploramos las mejores prácticas y ejemplos.</p>
+                            
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Diagrama comparativo entre HTML no semántico y HTML semántico mostrando sus diferencias">
+                                <figcaption>Comparativa entre estructura HTML no semántica y semántica: impacto en accesibilidad y SEO</figcaption>
+                            </figure>
+                            
+                            <p>Las etiquetas semánticas como &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;article&gt; y &lt;footer&gt; no solo mejoran la organización del código sino que también facilitan la interpretación por parte de lectores de pantalla y motores de búsqueda.</p>
+                        </section>
+                        
+                        <section>
+                            <h3>Tendencias en Desarrollo Web para 2025</h3>
+                            <p>El ecosistema del desarrollo web continúa evolucionando rápidamente. Analizamos las tendencias más importantes que definirán el futuro próximo de la web.</p>
+                            
+                            <figure>
+                                <img src="/api/placeholder/800/400" alt="Gráfico mostrando las tendencias emergentes en desarrollo web">
+                                <figcaption>Las tecnologías web evolucionan constantemente, adaptándose a nuevas necesidades</figcaption>
+                            </figure>
+                            
+                            <p>Desde la adopción generalizada de WebAssembly hasta los avances en interfaces basadas en IA, el panorama tecnológico está experimentando cambios significativos que todo desarrollador debería conocer.</p>
+                        </section>
+                    </article>
+                </div>
+                
+                <!-- Barra lateral semántica -->
+                <aside>
+                    <h3>Recursos Destacados</h3>
+                    <ul>
+                        <li><a href="#">Guía completa de HTML semántico</a></li>
+                        <li><a href="#">Optimización de rendimiento web</a></li>
+                        <li><a href="#">Accesibilidad web: mejores prácticas</a></li>
+                        <li><a href="#">Seguridad en aplicaciones web</a></li>
+                    </ul>
+                    
+                    <div class="card">
+                        <h4>Próximo Webinar</h4>
+                        <p>Arquitecturas modernas para aplicaciones web</p>
+                        <p><small>20 de marzo, 19:00h</small></p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>Curso Destacado</h4>
+                        <p>"HTML Semántico: Más allá de las etiquetas"</p>
+                        <p><small>12 horas de contenido práctico</small></p>
+                    </div>
+                    
+                    <h3>Testimonios</h3>
+                    <blockquote>
+                        <p>"Los recursos de TechHub transformaron mi carrera como desarrollador. El enfoque en buenas prácticas y código semántico mejoró significativamente mis proyectos."</p>
+                        <cite>— Ana G., Desarrolladora Frontend</cite>
+                    </blockquote>
+                </aside>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Pie de página semántico -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sobre TechHub</h3>
+                    <p>TechHub es una plataforma educativa dedicada a proporcionar recursos de alta calidad para desarrolladores web, con énfasis en buenas prácticas y tecnologías modernas.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#cursos">Cursos</a></li>
+                        <li><a href="#recursos">Recursos</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Sitios Recomendados</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a></li>
+                        <li><a href="https://www.w3.org" target="_blank">W3C</a></li>
+                        <li><a href="https://web.dev" target="_blank">web.dev</a></li>
+                        <li><a href="https://css-tricks.com" target="_blank">CSS-Tricks</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <address>
+                        <p>Email: info@techhub.com</p>
+                        <p>Teléfono: +57 310 450 8820</p>
+                        <p>Dirección: Calle Tecnología 123, Medellín, Colombia</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 TechHub. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
