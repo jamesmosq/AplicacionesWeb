@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colapsado de márgenes en CSS</title>
+    <link rel="stylesheet" href="/css/css-1-basico/010-colapso-mar/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Colapsado de márgenes en CSS</h1>
+
+    <p>El colapsado de márgenes es un comportamiento exclusivo de CSS que a menudo confunde a los desarrolladores, pero que es importante entender para crear layouts precisos.</p>
+
+    <h2>¿Qué es el colapsado de márgenes?</h2>
+
+    <p>El colapsado de márgenes ocurre cuando dos márgenes verticales (superior e inferior) entran en contacto. En lugar de sumarse, estos márgenes se "colapsan" y solo se aplica el margen más grande de los dos.</p>
+
+    <div class="example">
+        <h3>Ejemplo básico de colapsado de márgenes</h3>
+
+        <div class="collapsed-example">
+            <div class="collapsed-box-1">
+                Este elemento tiene margin-bottom: 30px
+            </div>
+
+            <div class="collapsed-measure" style="top: 81px;"></div>
+
+            <div class="collapsed-box-2">
+                Este elemento tiene margin-top: 20px
+            </div>
+
+            <div class="margin-size">
+                <strong>Espacio total:</strong> 30px (no 50px, se usa el margen mayor)
+            </div>
+        </div>
+
+        <p>En este ejemplo:</p>
+        <ul>
+            <li>El primer elemento tiene <code>margin-bottom: 30px</code></li>
+            <li>El segundo elemento tiene <code>margin-top: 20px</code></li>
+            <li>Uno esperaría que la distancia entre ellos fuera de 50px (30px + 20px)</li>
+            <li>Sin embargo, debido al colapsado de márgenes, la distancia real es de 30px (el mayor de los dos márgenes)</li>
+        </ul>
+    </div>
+
+    <h2>Situaciones donde ocurre el colapsado de márgenes</h2>
+
+    <p>El colapsado de márgenes ocurre en tres situaciones principales:</p>
+
+    <h3>1. Márgenes adyacentes de elementos hermanos</h3>
+
+    <p>Cuando el margen inferior de un elemento y el margen superior del siguiente elemento hermano entran en contacto:</p>
+
+    <pre>.elemento1 {
+    margin-bottom: 30px;
+}
+
+.elemento2 {
+    margin-top: 20px;
+}
+
+/* La distancia entre ellos será de 30px, no 50px */</pre>
+
+    <h3>2. Márgenes entre padre e hijo</h3>
+
+    <p>Cuando un elemento padre no tiene padding, border, contenido inline o clearance para separarlo del margen superior o inferior de sus hijos:</p>
+
+    <pre>.padre {
+    margin-top: 40px;
+}
+
+.hijo {
+    margin-top: 25px;
+}
+
+/* El margen superior del hijo "escapa" y se colapsa con el del padre,
+   resultando en un margen efectivo de 40px, no 65px */</pre>
+
+    <div class="example">
+        <h3>Ejemplo de colapsado entre padre e hijo</h3>
+
+        <div class="comparison">
+            <div class="comparison-item">
+                <div class="comparison-title">Con colapsado</div>
+                <div class="margin-size">Margen del padre: 20px</div>
+                <div class="margin-measure"></div>
+                <div style="background-color: #ecf0f1; margin-top: 20px;">
+                    <div style="margin-top: 30px; background-color: #3498db; color: white; text-align: center; padding: 10px;">
+                        Hijo con margin-top: 30px
+                    </div>
+                </div>
+                <div class="margin-size">
+                    <strong>Margen efectivo:</strong> 30px (el mayor)
+                </div>
+            </div>
+
+            <div class="comparison-item">
+                <div class="comparison-title">Sin colapsado (con padding)</div>
+                <div class="margin-size">Margen del padre: 20px</div>
+                <div class="margin-measure"></div>
+                <div style="background-color: #ecf0f1; margin-top: 20px; padding-top: 1px;">
+                    <div style="margin-top: 30px; background-color: #3498db; color: white; text-align: center; padding: 10px;">
+                        Hijo con margin-top: 30px
+                    </div>
+                </div>
+                <div class="margin-size">
+                    <strong>Márgenes separados:</strong> 20px (padre) + 30px (hijo)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>3. Márgenes de elementos vacíos</h3>
+
+    <p>Cuando un elemento no tiene altura, contenido, padding o border, sus márgenes superior e inferior se colapsan:</p>
+
+    <pre>.vacio {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    /* Sin altura ni contenido */
+}
+
+/* El margen efectivo será de 30px, no 50px */</pre>
+
+    <div class="note">
+        <p>El colapsado de márgenes <strong>solo ocurre con márgenes verticales</strong> (top y bottom). Los márgenes horizontales (left y right) nunca se colapsan.</p>
+    </div>
+
+    <h2>Cuándo NO ocurre el colapsado de márgenes</h2>
+
+    <p>Existen varias situaciones donde los márgenes no se colapsan:</p>
+
+    <h3>1. Elementos con posicionamiento absoluto o flotantes</h3>
+    <p>Los elementos con <code>position: absolute</code> o con <code>float</code> no participan en el colapsado de márgenes.</p>
+
+    <h3>2. Elementos flexbox o grid</h3>
+    <p>Los hijos directos de un contenedor flex o grid no experimentan colapsado de márgenes.</p>
+
+    <h3>3. Elementos con establecimiento de contexto de formato de bloque (BFC)</h3>
+    <p>Los elementos que establecen un nuevo contexto de formato de bloque evitan el colapsado con otros elementos. Esto incluye:</p>
+    <ul>
+        <li>Elementos con <code>overflow</code> distinto de <code>visible</code></li>
+        <li>Elementos con <code>display: flow-root</code></li>
+        <li>Elementos con <code>display: inline-block</code></li>
+        <li>Elementos con <code>column-*</code> definido</li>
+        <li>Elementos con <code>contain: layout</code>, <code>content</code> o <code>strict</code></li>
+    </ul>
+
+    <h3>4. Elementos con border o padding</h3>
+    <p>Si hay un borde o padding entre los márgenes, no ocurrirá el colapsado.</p>
+
+    <div class="example">
+        <h3>Ejemplo: Prevención del colapsado de márgenes</h3>
+
+        <div class="comparison">
+            <div class="comparison-item">
+                <div class="comparison-title">Con colapsado (normal)</div>
+                <div class="box" style="margin-bottom: 30px;">
+                    margin-bottom: 30px
+                </div>
+                <div class="box" style="margin-top: 20px;">
+                    margin-top: 20px
+                </div>
+                <div class="margin-size">
+                    Espacio: 30px (colapsado)
+                </div>
+            </div>
+
+            <div class="comparison-item">
+                <div class="comparison-title">Sin colapsado (flex)</div>
+                <div style="display: flex; flex-direction: column;">
+                    <div class="box" style="margin-bottom: 30px;">
+                        margin-bottom: 30px
+                    </div>
+                    <div class="box" style="margin-top: 20px;">
+                        margin-top: 20px
+                    </div>
+                </div>
+                <div class="margin-size">
+                    Espacio: 50px (sin colapsar)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Cómo controlar el colapsado de márgenes</h2>
+
+    <p>Existen varias técnicas para evitar o controlar el colapsado de márgenes:</p>
+
+    <h3>1. Añadir bordes o padding</h3>
+
+    <pre>/* Prevenir el colapsado entre padre e hijo */
+.padre {
+    /* Incluso 1px de padding es suficiente */
+    padding-top: 1px;
+    padding-bottom: 1px;
+    /* O un borde */
+    border: 1px solid transparent;
+}</pre>
+
+    <h3>2. Usar overflow</h3>
+
+    <pre>.padre {
+    overflow: auto; /* o hidden, scroll, etc. */
+}</pre>
+
+    <h3>3. Usar display: flow-root</h3>
+
+    <pre>/* Solución moderna sin efectos secundarios */
+.padre {
+    display: flow-root;
+}</pre>
+
+    <h3>4. Usar flexbox o grid</h3>
+
+    <pre>.contenedor {
+    display: flex;
+    flex-direction: column;
+}</pre>
+
+    <div class="example">
+        <h3>Comparación: Soluciones al colapsado de márgenes</h3>
+
+        <div class="demo-title">
+            Ejemplo de problema: Colapsado de márgenes padre-hijo
+        </div>
+
+        <div class="comparison">
+            <div class="comparison-item">
+                <div class="comparison-title">Colapsado (problema)</div>
+                <div style="background-color: #ecf0f1; margin-top: 20px;">
+                    Padre
+                    <div style="margin-top: 30px; background-color: #3498db; color: white; text-align: center; padding: 10px;">
+                        Hijo
+                    </div>
+                </div>
+                <div class="margin-size">
+                    El margen del hijo se colapsa con el del padre
+                </div>
+            </div>
+
+            <div class="comparison-item">
+                <div class="comparison-title">Solución: padding</div>
+                <div style="background-color: #ecf0f1; margin-top: 20px; padding-top: 1px;">
+                    Padre (con padding-top: 1px)
+                    <div style="margin-top: 30px; background-color: #3498db; color: white; text-align: center; padding: 10px;">
+                        Hijo
+                    </div>
+                </div>
+                <div class="margin-size">
+                    El padding previene el colapsado
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison">
+            <div class="comparison-item">
+                <div class="comparison-title">Solución: border</div>
+                <div style="background-color: #ecf0f1; margin-top: 20px; border-top: 1px solid transparent;">
+                    Padre (con border-top transparente)
+                    <div style="margin-top: 30px; background-color: #3498db; color: white; text-align: center; padding: 10px;">
+                        Hijo
+                    </div>
+                </div>
+                <div class="margin-size">
+                    El borde previene el colapsado
+                </div>
+            </div>
+
+            <div class="comparison-item">
+                <div class="comparison-title">Solución: display: flow-root</div>
+                <div style="background-color: #ecf0f1; margin-top: 20px; display: flow-root;">
+                    Padre (con display: flow-root)
+                    <div style="margin-top: 30px; background-color: #3498db; color: white; text-align: center; padding: 10px;">
+                        Hijo
+                    </div>
+                </div>
+                <div class="margin-size">
+                    flow-root crea un BFC que previene el colapsado
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Cuándo el colapsado de márgenes es útil</h2>
+
+    <p>Aunque a veces puede causar confusión, el colapsado de márgenes tiene sus ventajas:</p>
+
+    <ul>
+        <li><strong>Espaciado uniforme:</strong> Permite mantener un espaciado constante entre elementos, incluso cuando algunos tienen márgenes específicos.</li>
+        <li><strong>Párrafos y secciones:</strong> Facilita el espaciado entre párrafos y secciones de texto sin preocuparse por márgenes duplicados.</li>
+        <li><strong>Consistencia tipográfica:</strong> Ayuda a mantener un ritmo vertical coherente en el diseño.</li>
+    </ul>
+
+    <div class="example">
+        <h3>Ejemplo de colapsado útil: Párrafos</h3>
+
+        <div style="border: 1px solid #ddd; padding: 20px;">
+            <p style="margin: 20px 0; background-color: #f0f0f0; padding: 10px;">Este párrafo tiene margin-top y margin-bottom de 20px.</p>
+            <p style="margin: 20px 0; background-color: #f0f0f0; padding: 10px;">Este párrafo también tiene margin-top y margin-bottom de 20px.</p>
+            <p style="margin: 20px 0; background-color: #f0f0f0; padding: 10px;">Gracias al colapsado de márgenes, el espacio entre párrafos es de 20px (no 40px), lo que mantiene un espaciado consistente.</p>
+        </div>
+    </div>
+
+    <h2>Práctica</h2>
+
+    <div class="practice">
+        <h3>Ejercicio 1: Identifica el colapsado de márgenes</h3>
+
+        <p>Observa el siguiente ejemplo y determina qué márgenes se están colapsando:</p>
+
+        <div class="parent-box">
+            <h4 style="margin-top: 25px; margin-bottom: 15px;">Este encabezado tiene margin-top: 25px y margin-bottom: 15px</h4>
+            <p style="margin-top: 20px; margin-bottom: 30px;">Este párrafo tiene margin-top: 20px y margin-bottom: 30px</p>
+            <p style="margin-top: 10px; margin-bottom: 20px;">Este párrafo tiene margin-top: 10px y margin-bottom: 20px</p>
+        </div>
+
+        <p>Preguntas:</p>
+        <ol>
+            <li>¿Cuál es el espacio entre el encabezado y el primer párrafo?</li>
+            <li>¿Cuál es el espacio entre los dos párrafos?</li>
+            <li>¿Hay colapsado entre el padre y el encabezado?</li>
+        </ol>
+
+        <h3>Ejercicio 2: Prevenir el colapsado de márgenes</h3>
+
+        <p>Modifica el siguiente contenedor para prevenir el colapsado de márgenes entre padre e hijo:</p>
+
+        <pre>.contenedor {
+    background-color: #f0f0f0;
+    margin-top: 30px;
+
+    /* Añade una de estas soluciones: */
+    /* padding-top: 1px; */
+    /* border-top: 1px solid transparent; */
+    /* overflow: auto; */
+    /* display: flow-root; */
+}
+
+.hijo {
+    margin-top: 20px;
+    background-color: #3498db;
+}</pre>
+
+        <h3>Ejercicio 3: Crear un espaciado consistente</h3>
+
+        <p>Crea una serie de secciones con títulos y párrafos que mantengan un espaciado vertical consistente, aprovechando el colapsado de márgenes:</p>
+
+        <pre>h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.seccion {
+    margin-bottom: 30px;
+}
+
+/* Con esta configuración, el espacio entre un párrafo y el siguiente título h2
+   será de 40px (el mayor entre 15px del párrafo y 40px del título),
+   manteniendo un ritmo vertical consistente */</pre>
+    </div>
+
+    <h2>Consejos prácticos sobre el colapsado de márgenes</h2>
+
+    <ul>
+        <li>Entiende el colapsado como una característica del diseño, no como un error</li>
+        <li>Usa margin-bottom O margin-top, pero no ambos, para evitar confusiones</li>
+        <li>Para layouts complejos donde el colapsado cause problemas, considera usar flexbox o grid</li>
+        <li>Utiliza <code>display: flow-root</code> como la solución más limpia para prevenir el colapsado</li>
+        <li>En diseños responsivos, ten en cuenta que los elementos pueden reorganizarse y cambiar de vertical a horizontal (donde no hay colapsado)</li>
+    </ul>
+
+    <div class="note">
+        <p>Una práctica común en CSS moderno es usar solo margin-bottom para espaciar elementos verticalmente, evitando margin-top. Esto hace que el comportamiento sea más predecible y facilita el razonamiento sobre el colapsado de márgenes.</p>
+    </div>
+
+    <h2>Resumen del colapsado de márgenes</h2>
+
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+        <thead>
+        <tr style="background-color: #3498db; color: white;">
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Aspecto</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Descripción</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Definición</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Cuando dos márgenes verticales adyacentes se combinan, usando solo el valor mayor</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Ocurre entre</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                - Elementos hermanos adyacentes<br>
+                - Padres e hijos (sin padding/border)<br>
+                - Elementos vacíos
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>No ocurre con</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                - Elementos posicionados o flotantes<br>
+                - Elementos flexbox o grid<br>
+                - Elementos que crean BFC<br>
+                - Márgenes horizontales
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Soluciones</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                - Añadir padding o border<br>
+                - Usar overflow distinto de visible<br>
+                - Usar display: flow-root<br>
+                - Usar flexbox/grid
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Beneficios</strong></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                - Espaciado uniforme y consistente<br>
+                - Mejor ritmo tipográfico vertical<br>
+                - Facilita el manejo de bloques de texto
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Conclusión</h2>
+
+    <p>El colapsado de márgenes es una característica única de CSS que inicialmente puede parecer contra-intuitiva, pero que tiene un propósito de diseño válido. Comprender cómo y cuándo ocurre te permitirá:</p>
+
+    <ul>
+        <li>Predecir mejor el comportamiento del espaciado en tus diseños</li>
+        <li>Evitar problemas de layout inesperados</li>
+        <li>Crear ritmos verticales consistentes y armoniosos</li>
+        <li>Saber cuándo aprovecharlo y cuándo evitarlo</li>
+    </ul>
+
+    <p>Una vez que dominas el colapsado de márgenes, se convierte en una herramienta más en tu arsenal de diseño web, permitiéndote crear layouts más elegantes y predecibles.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de vinculación CSS con HTML</title>
+    <link rel="stylesheet" href="/css/css-1-basico/03-vinculacion/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Métodos de vinculación CSS con HTML</h1>
+
+    <p>Existen tres formas principales de aplicar estilos CSS a documentos HTML. Cada método tiene sus propias ventajas y usos recomendados.</p>
+
+    <h2>1. CSS Inline (en línea)</h2>
+
+    <div class="metodo inline-demo">
+        <p>El CSS inline se aplica directamente en los elementos HTML utilizando el atributo <code>style</code>.</p>
+
+        <div class="example">
+            <p>Ejemplo de HTML con CSS inline:</p>
+            <pre>&lt;p style="color: red; font-size: 18px; margin: 10px;"&gt;Este texto tiene estilos inline&lt;/p&gt;</pre>
+
+            <p>Resultado:</p>
+            <p style="color: red; font-size: 18px; margin: 10px;">Este texto tiene estilos inline</p>
+        </div>
+
+        <h3>Ventajas:</h3>
+        <ul>
+            <li>Aplicación inmediata y directa</li>
+            <li>Útil para cambios rápidos o pruebas</li>
+            <li>Mayor especificidad (prioridad sobre otros métodos)</li>
+        </ul>
+
+        <h3>Desventajas:</h3>
+        <ul>
+            <li>Difícil de mantener en sitios grandes</li>
+            <li>Mezcla el contenido (HTML) con la presentación (CSS)</li>
+            <li>No es reutilizable</li>
+            <li>Aumenta el tamaño del documento HTML</li>
+        </ul>
+
+        <div class="note">
+            <p>El CSS inline tiene la más alta prioridad en la cascada de estilos, por lo que anulará los estilos definidos con otros métodos.</p>
+        </div>
+    </div>
+
+    <h2>2. CSS Interno (incorporado)</h2>
+
+    <div class="metodo interno-demo">
+        <p>El CSS interno se coloca dentro del documento HTML, en la sección <code>&lt;head&gt;</code>, dentro de las etiquetas <code>&lt;style&gt;</code>.</p>
+
+        <div class="example">
+            <p>Ejemplo de CSS interno:</p>
+            <pre>&lt;head&gt;
+    &lt;style&gt;
+        p {
+            color: blue;
+            font-size: 16px;
+        }
+        .estilo-interno {
+            font-weight: bold;
+            color: #3498db;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;</pre>
+
+            <p>Resultado:</p>
+            <p class="estilo-interno">Este texto tiene estilos aplicados mediante CSS interno</p>
+        </div>
+
+        <h3>Ventajas:</h3>
+        <ul>
+            <li>Separa el CSS del marcado HTML</li>
+            <li>No requiere cargar archivos adicionales</li>
+            <li>Útil para páginas únicas con estilos específicos</li>
+        </ul>
+
+        <h3>Desventajas:</h3>
+        <ul>
+            <li>No es reutilizable entre múltiples páginas</li>
+            <li>Aumenta el tamaño del documento HTML</li>
+            <li>Puede afectar al tiempo de carga inicial</li>
+        </ul>
+
+        <div class="note">
+            <p>Este mismo documento utiliza CSS interno para todos sus estilos. ¡Observa la sección &lt;style&gt; en el código fuente!</p>
+        </div>
+    </div>
+
+    <h2>3. CSS Externo (vinculado)</h2>
+
+    <div class="metodo externo-demo">
+        <p>El CSS externo se coloca en un archivo separado con extensión <code>.css</code> y se vincula al documento HTML mediante la etiqueta <code>&lt;link&gt;</code>.</p>
+
+        <div class="example">
+            <p>Ejemplo de vinculación a un archivo CSS externo:</p>
+            <pre>&lt;head&gt;
+    &lt;link rel="stylesheet" href="estilos.css"&gt;
+&lt;/head&gt;</pre>
+
+            <p>Y el contenido del archivo <code>estilos.css</code> podría ser:</p>
+            <pre>body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+h1 {
+    color: #2c3e50;
+}
+
+.destacado {
+    background-color: yellow;
+    padding: 5px;
+}</pre>
+        </div>
+
+        <h3>Ventajas:</h3>
+        <ul>
+            <li>Completa separación del contenido y la presentación</li>
+            <li>Reutilizable en múltiples páginas</li>
+            <li>Facilita el mantenimiento del sitio web</li>
+            <li>El navegador puede cachear el archivo CSS</li>
+            <li>Documentos HTML más limpios y ligeros</li>
+        </ul>
+
+        <h3>Desventajas:</h3>
+        <ul>
+            <li>Requiere una solicitud HTTP adicional (aunque puede ser cacheada)</li>
+            <li>La página podría mostrarse sin estilos momentáneamente</li>
+        </ul>
+
+        <div class="note">
+            <p>El CSS externo es el método recomendado para la mayoría de los sitios web, especialmente aquellos con múltiples páginas.</p>
+        </div>
+    </div>
+
+    <h2>Comparación de los tres métodos</h2>
+
+    <table class="comparacion">
+        <thead>
+        <tr>
+            <th>Método</th>
+            <th>Sintaxis</th>
+            <th>Ventajas</th>
+            <th>Desventajas</th>
+            <th>Recomendado para</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Inline</td>
+            <td><code>&lt;elemento style="propiedad: valor"&gt;</code></td>
+            <td>Aplicación directa, alta prioridad</td>
+            <td>No reutilizable, mezcla contenido y presentación</td>
+            <td>Cambios puntuales, pruebas rápidas</td>
+        </tr>
+        <tr>
+            <td>Interno</td>
+            <td><code>&lt;style&gt;selector{...}&lt;/style&gt;</code></td>
+            <td>No requiere archivos adicionales</td>
+            <td>No reutilizable entre páginas</td>
+            <td>Páginas únicas con estilos específicos</td>
+        </tr>
+        <tr>
+            <td>Externo</td>
+            <td><code>&lt;link rel="stylesheet" href="archivo.css"&gt;</code></td>
+            <td>Reutilizable, mantenible, cacheable</td>
+            <td>Solicitud HTTP adicional</td>
+            <td>La mayoría de sitios web, especialmente los grandes</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Práctica</h2>
+
+    <div class="practice">
+        <h3>Ejercicio: Probar los tres métodos de vinculación CSS</h3>
+
+        <p>1. <strong>CSS Inline:</strong> Modifica el siguiente párrafo agregando el atributo style con las propiedades que desees:</p>
+        <p id="practica-inline">Este párrafo debe modificarse con CSS inline.</p>
+
+        <p>Ejemplo:</p>
+        <pre>&lt;p id="practica-inline" style="color: purple; background-color: #f0f0f0; padding: 10px;"&gt;...</pre>
+
+        <hr class="separador">
+
+        <p>2. <strong>CSS Interno:</strong> Busca la sección &lt;style&gt; en el head del documento y agrega una regla para el siguiente elemento:</p>
+        <p id="practica-interno">Este párrafo debe modificarse con CSS interno.</p>
+
+        <p>Ejemplo (para agregar en el &lt;style&gt;):</p>
+        <pre>#practica-interno {
+    text-decoration: underline;
+    font-style: italic;
+    border-left: 3px solid green;
+    padding-left: 10px;
+}</pre>
+
+        <hr class="separador">
+
+        <p>3. <strong>CSS Externo:</strong> Imagina que tienes un archivo externo llamado "estilos.css". ¿Cómo lo vincularías a este documento HTML?</p>
+
+        <p>Escribe el código para vincular un archivo CSS externo:</p>
+        <pre>&lt;link rel="stylesheet" href="estilos.css"&gt;</pre>
+    </div>
+
+    <h2>Consejos finales</h2>
+
+    <ul>
+        <li>Para proyectos web reales, utiliza principalmente CSS externo</li>
+        <li>El CSS interno es útil para páginas únicas o prototipos</li>
+        <li>Limita el uso de CSS inline solo para casos excepcionales o pruebas rápidas</li>
+        <li>Puedes combinar los tres métodos, pero recuerda que existe una jerarquía de especificidad: inline > interno/externo (dependiendo del orden)</li>
+    </ul>
+</div>
+</body>
+</html>

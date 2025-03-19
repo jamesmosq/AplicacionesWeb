@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectores básicos en CSS</title>
+    <link rel="stylesheet" href="/css/css-1-basico/02-selectores/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Selectores básicos en CSS</h1>
+
+    <p>Los selectores CSS te permiten apuntar a elementos HTML específicos para aplicarles estilos. Aprender a usar correctamente los selectores es fundamental para el diseño web.</p>
+
+    <h2>Tipos de selectores básicos</h2>
+
+    <h3>1. Selector de elemento</h3>
+    <p>Selecciona todos los elementos de un tipo específico.</p>
+
+    <pre>p {
+    color: blue;
+}</pre>
+
+    <div class="example ejemplo-elemento">
+        <p>Este es un párrafo afectado por un selector de elemento.</p>
+        <p>Este es otro párrafo afectado por el mismo selector.</p>
+    </div>
+
+    <h3>2. Selector de clase</h3>
+    <p>Selecciona todos los elementos que tienen un atributo de clase específico. Se usa un punto <code>.</code> seguido del nombre de la clase.</p>
+
+    <pre>.destacado {
+    font-weight: bold;
+    color: #3498db;
+}</pre>
+
+    <div class="example ejemplo-clase">
+        <p>Este es un párrafo normal.</p>
+        <p class="destacado">Este párrafo tiene la clase "destacado".</p>
+        <div class="destacado">Este div también tiene la clase "destacado".</div>
+    </div>
+
+    <div class="note">
+        <p>Un elemento puede tener múltiples clases separadas por espacios: <code>&lt;p class="destacado grande"&gt;</code></p>
+    </div>
+
+    <h3>3. Selector de ID</h3>
+    <p>Selecciona un elemento con un ID específico. Un ID debe ser único en la página. Se usa el símbolo <code>#</code> seguido del nombre del ID.</p>
+
+    <pre>#unico {
+    background-color: #e8f4f8;
+    padding: 10px;
+    border-radius: 5px;
+}</pre>
+
+    <div class="example ejemplo-id">
+        <p>Este es un párrafo normal.</p>
+        <p id="unico">Este párrafo tiene el ID "unico" y solo puede existir uno en la página.</p>
+    </div>
+
+    <div class="note">
+        <p>Los IDs tienen mayor especificidad que las clases o los selectores de elemento, lo que significa que sus estilos tienen prioridad.</p>
+    </div>
+
+    <h3>4. Selector universal</h3>
+    <p>Selecciona todos los elementos. Se representa con un asterisco <code>*</code>.</p>
+
+    <pre>* {
+    margin: 0;
+    padding: 0;
+}</pre>
+
+    <div class="example ejemplo-universal" style="padding: 10px;">
+        <p>Este párrafo está dentro de un contenedor con selector universal.</p>
+        <span>Este span también.</span>
+        <div>Y este div también.</div>
+    </div>
+
+    <div class="note">
+        <p>El selector universal debe usarse con precaución, ya que afecta a todos los elementos y puede tener un impacto en el rendimiento si se aplica con propiedades costosas.</p>
+    </div>
+
+    <h2>Práctica de selectores</h2>
+
+    <div class="practice">
+        <p>Experimenta con los diferentes tipos de selectores para modificar la apariencia de los siguientes elementos:</p>
+
+        <div class="practica-selectores">
+            <p>Este es un párrafo normal que puedes seleccionar por elemento.</p>
+            <p class="importante">Este párrafo tiene la clase "importante".</p>
+            <p id="especial">Este párrafo tiene el ID "especial".</p>
+        </div>
+
+        <p>Modifica los siguientes selectores en la sección &lt;style&gt; del documento:</p>
+
+        <pre>.practica-selectores p {
+    /* Añade estilos para todos los párrafos dentro de .practica-selectores */
+}
+
+.practica-selectores .importante {
+    /* Añade estilos para elementos con clase "importante" */
+}
+
+.practica-selectores #especial {
+    /* Añade estilos para el elemento con ID "especial" */
+}</pre>
+
+        <p>Intenta aplicar diferentes propiedades como:</p>
+        <ul>
+            <li>color</li>
+            <li>background-color</li>
+            <li>font-size</li>
+            <li>font-weight</li>
+            <li>padding</li>
+            <li>border</li>
+            <li>text-align</li>
+        </ul>
+    </div>
+
+    <h2>Comparativa de selectores</h2>
+
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+        <thead>
+        <tr style="background-color: #3498db; color: white;">
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Tipo de selector</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Sintaxis</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Uso recomendado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Elemento</td>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>elemento { }</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Estilos generales para un tipo de elemento</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Clase</td>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>.nombre-clase { }</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Estilos reutilizables en múltiples elementos</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">ID</td>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>#nombre-id { }</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Elementos únicos con estilos específicos</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Universal</td>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>* { }</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Resetear estilos o aplicar reglas globales</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Consejos finales</h2>
+
+    <ul>
+        <li>Usa selectores de elemento para estilos básicos y generales</li>
+        <li>Usa clases para la mayoría de los estilos reutilizables</li>
+        <li>Usa IDs con moderación, solo para elementos verdaderamente únicos</li>
+        <li>Usa el selector universal con precaución</li>
+        <li>La especificidad importa: ID > Clase > Elemento > Universal</li>
+    </ul>
+</div>
+</body>
+</html>

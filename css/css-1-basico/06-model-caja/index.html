@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concepto del modelo de caja en CSS</title>
+    <link rel="stylesheet" href="/css/css-1-basico/06-model-caja/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Concepto del modelo de caja en CSS</h1>
+
+    <p>El modelo de caja (box model) es un concepto fundamental en CSS que describe cómo se representan los elementos HTML en una página. Cada elemento se considera como una "caja" rectangular que tiene varias capas.</p>
+
+    <h2>¿Qué es el modelo de caja?</h2>
+
+    <p>En CSS, el modelo de caja define que todo elemento HTML está compuesto por cuatro capas o áreas que se envuelven una a otra como las capas de una cebolla:</p>
+
+    <ol>
+        <li><strong>Contenido (Content)</strong>: El área donde se muestra el texto, imágenes u otros medios.</li>
+        <li><strong>Relleno (Padding)</strong>: El espacio transparente alrededor del contenido.</li>
+        <li><strong>Borde (Border)</strong>: Una línea que rodea el padding y el contenido.</li>
+        <li><strong>Margen (Margin)</strong>: El espacio transparente externo que separa el elemento de otros elementos.</li>
+    </ol>
+
+    <div class="box-model-demo">
+        <div class="box-margin">
+            <span class="box-label margin-label">Margin</span>
+        </div>
+        <div class="box-border">
+            <span class="box-label border-label">Border</span>
+        </div>
+        <div class="box-padding">
+            <span class="box-label padding-label">Padding</span>
+        </div>
+        <div class="box-content">
+            <span class="box-label content-label">Content</span>
+        </div>
+    </div>
+
+    <h2>Propiedades del modelo de caja</h2>
+
+    <p>Las principales propiedades CSS relacionadas con el modelo de caja son:</p>
+
+    <pre>/* Dimensiones del contenido */
+width: 200px;
+height: 100px;
+
+/* Padding (relleno interno) */
+padding-top: 10px;
+padding-right: 20px;
+padding-bottom: 10px;
+padding-left: 20px;
+/* O la versión abreviada */
+padding: 10px 20px 10px 20px; /* arriba, derecha, abajo, izquierda */
+
+/* Border (borde) */
+border-width: 1px;
+border-style: solid;
+border-color: black;
+/* O la versión abreviada */
+border: 1px solid black;
+
+/* Margin (margen externo) */
+margin-top: 10px;
+margin-right: 15px;
+margin-bottom: 10px;
+margin-left: 15px;
+/* O la versión abreviada */
+margin: 10px 15px 10px 15px; /* arriba, derecha, abajo, izquierda */</pre>
+
+    <h2>Cálculo de las dimensiones totales</h2>
+
+    <p>Por defecto en CSS, las dimensiones totales de un elemento se calculan sumando todos los componentes:</p>
+
+    <pre>Ancho total = width + padding-left + padding-right + border-left + border-right + margin-left + margin-right
+
+Alto total = height + padding-top + padding-bottom + border-top + border-bottom + margin-top + margin-bottom</pre>
+
+    <div class="note">
+        <p>Esto significa que cuando defines <code>width: Al, es el tamaño del contenido, no el tamaño total visible del elemento. Esta es una fuente común de confusión en CSS.</p>
+    </div>
+
+    <div class="example">
+        <h3>Ejemplo de cálculo de dimensiones</h3>
+        <div class="box-ejemplo">
+            Esta caja tiene un ancho de contenido de 100%
+        </div>
+        <div class="dimensiones">
+            Ancho de contenido: 100% del contenedor<br>
+            Padding: 20px a cada lado<br>
+            Border: 5px a cada lado<br>
+            Margin: 20px a cada lado<br>
+            <strong>Ancho total: 100% + 40px (padding) + 10px (border) + 40px (margin)</strong>
+        </div>
+    </div>
+
+    <h2>Importancia del modelo de caja</h2>
+
+    <p>Entender el modelo de caja es crucial porque:</p>
+
+    <ul>
+        <li>Afecta el layout y la disposición de los elementos</li>
+        <li>Determina las distancias entre elementos</li>
+        <li>Es esencial para crear diseños responsive</li>
+        <li>Ayuda a evitar desbordamiento (overflow) de contenido</li>
+    </ul>
+
+    <h2>Tipos de cajas en CSS</h2>
+
+    <p>En CSS, existen dos tipos principales de cajas según cómo se comportan en el flujo del documento:</p>
+
+    <h3>Cajas de bloque (Block boxes)</h3>
+    <ul>
+        <li>Ocupan todo el ancho disponible</li>
+        <li>Crean un salto de línea antes y después</li>
+        <li>Respetan propiedades de width y height</li>
+        <li>Ejemplos: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code></li>
+    </ul>
+
+    <h3>Cajas en línea (Inline boxes)</h3>
+    <ul>
+        <li>Solo ocupan el espacio necesario para su contenido</li>
+        <li>No crean saltos de línea</li>
+        <li>Ignoran algunas propiedades de dimensionamiento como width y height</li>
+        <li>Ejemplos: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code></li>
+    </ul>
+
+    <div class="note">
+        <p>También existe <code>display: inline-block</code>, que combina características de ambos tipos: no crea saltos de línea pero respeta dimensiones.</p>
+    </div>
+
+    <h2>Práctica</h2>
+
+    <div class="practice">
+        <h3>Ejercicio: Experimenta con el modelo de caja</h3>
+
+        <p>Modifica las propiedades de la siguiente caja para ver cómo afectan al modelo de caja:</p>
+
+        <div class="practica-caja">
+            Caja de práctica
+        </div>
+
+        <p>Añade estas propiedades a la clase <code>.practica-caja</code> en el CSS:</p>
+
+        <pre>.practica-caja {
+    /* Propiedades actuales */
+    background-color: #e74c3c;
+    color: white;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+
+    /* Añade estas propiedades y experimenta con diferentes valores */
+    padding: ; /* prueba con 10px, 20px, etc. */
+    border: ; /* prueba con 2px solid black, 5px dashed blue, etc. */
+    margin: ; /* prueba con 10px, 20px auto, etc. */
+}</pre>
+
+        <p>Preguntas para reflexionar:</p>
+        <ol>
+            <li>¿Cómo cambia el tamaño total de la caja al añadir padding?</li>
+            <li>¿Qué ocurre con el texto cuando añades padding pero mantienes la misma altura de línea?</li>
+            <li>¿Cómo afecta el margin al espacio entre esta caja y otros elementos?</li>
+            <li>¿Cuál es la diferencia visual entre padding y margin?</li>
+        </ol>
+    </div>
+
+    <h2>Inspector de elementos y el modelo de caja</h2>
+
+    <p>Una forma excelente de entender el modelo de caja es utilizando el inspector de elementos de tu navegador:</p>
+
+    <ol>
+        <li>Haz clic derecho en cualquier elemento de una página web</li>
+        <li>Selecciona "Inspeccionar" o "Inspeccionar elemento"</li>
+        <li>En el panel de estilos, busca una visualización del modelo de caja (normalmente muestra un diagrama con las medidas)</li>
+    </ol>
+
+    <p>Esta herramienta te permite ver exactamente cómo se están aplicando las diferentes capas del modelo de caja a cualquier elemento.</p>
+
+    <div class="note">
+        <p>Para un desarrollo web eficiente, es fundamental dominar el modelo de caja. La mayoría de los problemas de layout en CSS están relacionados con un entendimiento incompleto de cómo funciona el modelo de caja.</p>
+    </div>
+</div>
+</body>
+</html>

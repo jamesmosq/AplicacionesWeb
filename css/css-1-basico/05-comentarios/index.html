@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios en CSS</title>
+    <link rel="stylesheet" href="/css/css-1-basico/05-comentarios/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Comentarios en CSS</h1>
+
+    <p>Los comentarios en CSS son una herramienta esencial para documentar tu código, explicar decisiones de diseño y organizar tus hojas de estilo. Un código bien comentado es más fácil de mantener, tanto para ti como para otros desarrolladores.</p>
+
+    <div class="header-ejemplo">
+        <h2 style="color: white; margin-top: 0;">¿Qué son los comentarios en CSS?</h2>
+        <p>Los comentarios son notas que puedes incluir en tu código CSS que el navegador ignorará al procesar los estilos. Son útiles para explicar por qué se ha utilizado cierto enfoque o para desactivar temporalmente algunos estilos.</p>
+    </div>
+
+    <h2>Sintaxis de los comentarios en CSS</h2>
+
+    <p>En CSS, solo existe un tipo de sintaxis para comentarios:</p>
+
+    <pre>/* Este es un comentario en CSS */</pre>
+
+    <p>Los comentarios pueden ocupar una sola línea:</p>
+
+    <pre>/* Este es un comentario de una línea */
+h1 { color: blue; }</pre>
+
+    <p>O pueden extenderse a múltiples líneas:</p>
+
+    <pre>/*
+ * Este es un comentario
+ * que ocupa
+ * múltiples líneas
+ */
+p {
+    color: #333;
+    font-size: 16px;
+}</pre>
+
+    <div class="note">
+        <p><strong>Importante:</strong> A diferencia de otros lenguajes como JavaScript, CSS no admite comentarios de una sola línea con <code>//</code>. Solo se pueden usar <code>/* */</code>.</p>
+    </div>
+
+    <h2>Usos de los comentarios en CSS</h2>
+
+    <h3>1. Documentar secciones de código</h3>
+
+    <div class="example">
+            <pre>/* ==========================================================================
+   ENCABEZADO PRINCIPAL
+   ========================================================================== */
+header {
+    background-color: #2c3e50;
+    color: white;
+}</pre>
+    </div>
+
+    <h3>2. Explicar propiedades o decisiones de diseño</h3>
+
+    <div class="example">
+            <pre>.container {
+    width: 1170px; /* Ancho estándar para resoluciones de 1200px */
+    max-width: 100%; /* Se adapta a pantallas más pequeñas */
+    margin: 0 auto; /* Centrado horizontal */
+}</pre>
+    </div>
+
+    <h3>3. Deshabilitar temporalmente reglas CSS</h3>
+
+    <div class="example">
+            <pre>.banner {
+    background-color: #3498db;
+    /* padding: 20px; Deshabilitado temporalmente para pruebas */
+    color: white;
+}</pre>
+    </div>
+
+    <h3>4. Organizar el código en secciones</h3>
+
+    <div class="example">
+            <pre>/* ==========================================================================
+   RESET Y ELEMENTOS BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   ENCABEZADOS
+   ========================================================================== */
+h1, h2, h3 {
+    font-family: 'Arial', sans-serif;
+}
+
+/* ==========================================================================
+   NAVEGACIÓN PRINCIPAL
+   ========================================================================== */
+nav {
+    background-color: #333;
+}</pre>
+    </div>
+
+    <h3>5. Comentarios tipo TODO para recordatorios</h3>
+
+    <div class="example">
+            <pre>/* TODO: Revisar compatibilidad en IE11 */
+.flexbox-container {
+    display: flex;
+    justify-content: space-between;
+}</pre>
+    </div>
+
+    <h2>Buenas prácticas para comentarios en CSS</h2>
+
+    <table class="tabla-practicas">
+        <thead>
+        <tr>
+            <th>Práctica</th>
+            <th>Descripción</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Ser conciso</td>
+            <td>Escribe comentarios claros y concisos. Explica el "por qué", no solo el "qué".</td>
+        </tr>
+        <tr>
+            <td>Consistencia</td>
+            <td>Mantén un estilo uniforme en tus comentarios a lo largo de todo el código.</td>
+        </tr>
+        <tr>
+            <td>Separar secciones</td>
+            <td>Usa comentarios destacados para separar secciones principales del CSS.</td>
+        </tr>
+        <tr>
+            <td>Documentar hacks</td>
+            <td>Si usas soluciones poco convencionales, explica por qué son necesarias.</td>
+        </tr>
+        <tr>
+            <td>Actualizar comentarios</td>
+            <td>Mantén los comentarios actualizados cuando cambies el código.</td>
+        </tr>
+        <tr>
+            <td>Evitar excesos</td>
+            <td>No comentes lo obvio; enfócate en lo que realmente necesita explicación.</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Comentarios en diferentes entornos CSS</h2>
+
+    <h3>Comentarios en preprocesadores CSS (Sass/SCSS)</h3>
+
+    <p>Los preprocesadores como Sass ofrecen sintaxis adicional para comentarios:</p>
+
+    <div class="example">
+            <pre>// Este es un comentario de una línea en Sass/SCSS
+// No aparecerá en el CSS compilado
+
+/* Este es un comentario CSS normal
+   Se mantendrá en el archivo compilado */</pre>
+    </div>
+
+    <h3>Comentarios y minificación</h3>
+
+    <p>Cuando el CSS se minifica para producción, los comentarios generalmente se eliminan para reducir el tamaño del archivo. Por eso, no incluyas información crítica solo en comentarios.</p>
+
+    <h2>Práctica</h2>
+
+    <div class="practice">
+        <h3>Ejercicio 1: Añadir comentarios explicativos</h3>
+
+        <p>Revisa el siguiente código CSS y añade comentarios apropiados para explicar qué hace cada sección:</p>
+
+        <pre>body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .btn-primary {
+        display: block;
+        width: 100%;
+    }
+}</pre>
+
+        <h3>Ejercicio 2: Practicar con comentarios en secciones</h3>
+
+        <div class="practica-area">
+            <button class="btn">Botón de ejemplo</button>
+            <p>Párrafo de ejemplo para practicar con CSS.</p>
+
+            <p>Intenta añadir comentarios en las siguientes áreas:</p>
+            <ol>
+                <li>Un comentario de encabezado para toda una sección</li>
+                <li>Un comentario explicativo para una propiedad específica</li>
+                <li>Un comentario para deshabilitar temporalmente una regla</li>
+                <li>Un comentario tipo TODO</li>
+            </ol>
+        </div>
+
+        <h3>Ejercicio 3: Organización con comentarios</h3>
+
+        <p>Organiza el siguiente código CSS usando comentarios para separar diferentes secciones:</p>
+
+        <pre>body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+h1, h2, h3 { color: #2c3e50; margin-bottom: 15px; }
+p { line-height: 1.6; color: #333; }
+.header { background-color: #3498db; padding: 20px; color: white; }
+.footer { background-color: #2c3e50; padding: 20px; color: white; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+.btn { display: inline-block; padding: 8px 16px; background-color: #3498db; color: white; }
+.btn:hover { background-color: #2980b9; }
+@media (max-width: 768px) { .container { padding: 0 10px; } .btn { display: block; width: 100%; } }</pre>
+
+        <p>Sugerencia: Separa el código en secciones como "Reset", "Tipografía", "Componentes", "Layout" y "Media Queries".</p>
+    </div>
+
+    <h2>Ejemplos de sistemas de comentarios en proyectos reales</h2>
+
+    <h3>Ejemplo 1: Sistema de comentarios tipo bloque</h3>
+
+    <pre>/* ==========================================================================
+   COMPONENTE: TARJETA DE PRODUCTO
+   ========================================================================== */
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+/* Imagen del producto
+   ========================================================================== */
+.product-card__image {
+    width: 100%;
+    height: auto;
+}
+
+/* Título y precio
+   ========================================================================== */
+.product-card__title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-card__price {
+    color: #e74c3c;
+    font-weight: bold;
+}</pre>
+
+    <h3>Ejemplo 2: Sistema de comentarios para documentación automática</h3>
+
+    <p>Algunos equipos utilizan sistemas de comentarios que permiten generar documentación automáticamente:</p>
+
+    <pre>/**
+ * Botón primario del sistema de diseño
+ *
+ * @component Button
+ * @example
+ * &lt;Button primary&gt;Texto del botón&lt;/Button&gt;
+ */
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+.button--primary {
+    background-color: #3498db;
+    color: white;
+}</pre>
+
+    <h2>Conclusiones</h2>
+
+    <ul>
+        <li>Los comentarios son una herramienta valiosa para hacer el CSS más mantenible y comprensible</li>
+        <li>Usa comentarios para explicar el "por qué" detrás de decisiones de estilo no obvias</li>
+        <li>Organiza tu código en secciones lógicas usando comentarios como separadores</li>
+        <li>Mantén un sistema consistente de comentarios en todo tu proyecto</li>
+        <li>Recuerda que los comentarios no afectan al renderizado de la página, son solo para los desarrolladores</li>
+    </ul>
+
+    <div class="note">
+        <p>Un buen código CSS con comentarios adecuados reduce significativamente el tiempo necesario para entender y mantener proyectos, especialmente cuando trabajas en equipo o retomas un proyecto después de mucho tiempo.</p>
+    </div>
+</div>
+</body>
+</html>

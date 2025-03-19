@@ -1,0 +1,122 @@
+<!-- Ejemplo de CSS interno -->
+<style>
+     /* Estilos generales */
+ body {
+     font-family: Arial, sans-serif;
+     line-height: 1.6;
+     margin: 0;
+     padding: 20px;
+     background-color: #f5f5f5;
+     color: #333;
+ }
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #3498db;
+    margin-top: 30px;
+}
+
+code {
+    background-color: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    color: #e74c3c;
+}
+
+pre {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    line-height: 1.4;
+}
+
+.example {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.practice {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-left: 4px solid #3498db;
+    margin: 25px 0;
+}
+
+.note {
+    background-color: #fff8dc;
+    padding: 10px;
+    border-left: 4px solid #f1c40f;
+    margin: 15px 0;
+}
+
+/* Estilos específicos para demostraciones */
+.metodo {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.inline-demo {
+    background-color: #e8f8f5;
+    border: 1px solid #1abc9c;
+}
+
+.interno-demo {
+    background-color: #ebf5fb;
+    border: 1px solid #3498db;
+}
+
+.externo-demo {
+    background-color: #f9ebea;
+    border: 1px solid #e74c3c;
+}
+
+.comparacion {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.comparacion th, .comparacion td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.comparacion th {
+    background-color: #3498db;
+    color: white;
+}
+
+.comparacion tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Ejemplo para CSS interno */
+.estilo-interno {
+    font-weight: bold;
+    color: #3498db;
+}
+</style>
+
+/* <!-- Ejemplo de CSS externo (comentado, pero mostrando la sintaxis) -->
+<!-- <link rel="stylesheet" href="estilos.css"> --> */

@@ -1,0 +1,128 @@
+
+    /* Estilos generales para la página */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+h2 {
+    color: #3498db;
+    margin-top: 30px;
+}
+
+code {
+    background-color: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    color: #e74c3c;
+}
+
+pre {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    line-height: 1.4;
+}
+
+.example {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.practice {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-left: 4px solid #3498db;
+    margin: 25px 0;
+}
+
+.note {
+    background-color: #fff8dc;
+    padding: 10px;
+    border-left: 4px solid #f1c40f;
+    margin: 15px 0;
+}
+
+/* Ejemplo de comentarios en acción */
+/*
+ * Estilo para el header principal
+ * Este estilo usa un degradado de color
+ * y tiene una sombra sutil
+ */
+.header-ejemplo {
+    background: linear-gradient(to right, #3498db, #2c3e50);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+}
+
+/* Áreas para práctica */
+.practica-area {
+    padding: 15px;
+    border: 1px dashed #3498db;
+    margin-bottom: 15px;
+}
+
+/* Tabla de buenas prácticas */
+.tabla-practicas {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.tabla-practicas th,
+.tabla-practicas td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-practicas th {
+    background-color: #3498db;
+    color: white;
+}
+
+.tabla-practicas tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para botones en la práctica */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}

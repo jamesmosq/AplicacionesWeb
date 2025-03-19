@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propiedades margin, padding y border</title>
+  <link rel="stylesheet" href="/css/css-1-basico/07-propied-marg/style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Propiedades margin, padding y border</h1>
+
+  <p>Estas tres propiedades son fundamentales para controlar el espacio y la presentación visual de los elementos HTML. Son parte del modelo de caja de CSS y ofrecen un gran control sobre el diseño.</p>
+
+  <h2>Margin (Margen)</h2>
+
+  <p>El <strong>margin</strong> crea espacio alrededor del elemento, fuera de cualquier borde definido. Es transparente y no tiene color de fondo.</p>
+
+  <h3>Propiedades individuales de margin</h3>
+
+  <pre>margin-top: 10px;
+margin-right: 15px;
+margin-bottom: 20px;
+margin-left: 25px;</pre>
+
+  <h3>Notación abreviada (shorthand)</h3>
+
+  <pre>/* Todos los lados iguales */
+margin: 10px;
+
+/* Vertical (arriba/abajo) | Horizontal (izquierda/derecha) */
+margin: 10px 20px;
+
+/* Arriba | Horizontal (izquierda/derecha) | Abajo */
+margin: 10px 20px 30px;
+
+/* Arriba | Derecha | Abajo | Izquierda (sentido del reloj) */
+margin: 10px 20px 30px 40px;</pre>
+
+  <div class="example">
+    <h3>Ejemplos de margin</h3>
+
+    <div class="comparison">
+      <div>
+        <div class="comparison-box">Base</div>
+        <div class="comparison-label">Sin margin</div>
+      </div>
+
+      <div>
+        <div class="comparison-box margin-all">All</div>
+        <div class="comparison-label">margin: 30px;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box margin-top">Top</div>
+        <div class="comparison-label">margin-top: 30px;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box margin-right">Right</div>
+        <div class="comparison-label">margin-right: 50px;</div>
+      </div>
+    </div>
+
+    <div class="comparison">
+      <div>
+        <div class="comparison-box margin-bottom">Bottom</div>
+        <div class="comparison-label">margin-bottom: 30px;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box margin-left">Left</div>
+        <div class="comparison-label">margin-left: 50px;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box margin-shorthand">Mixed</div>
+        <div class="comparison-label">margin: 10px 20px 30px 40px;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box margin-negative">Negative</div>
+        <div class="comparison-label">margin-top: -20px;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <h3>Casos especiales de margin</h3>
+    <ul>
+      <li><code>margin: 0 auto;</code> - Centra horizontalmente un elemento de bloque con ancho definido</li>
+      <li><code>margin: auto;</code> - Útil en flexbox y grid para alineación</li>
+      <li><code>margin-top: -20px;</code> - Los márgenes negativos pueden superponer elementos</li>
+      <li>Los márgenes verticales adyacentes pueden colapsar (se fusionan)</li>
+    </ul>
+  </div>
+
+  <h2>Padding (Relleno)</h2>
+
+  <p>El <strong>padding</strong> crea espacio alrededor del contenido de un elemento, dentro de cualquier borde definido. Hereda el color de fondo del elemento.</p>
+
+  <h3>Propiedades individuales de padding</h3>
+
+  <pre>padding-top: 10px;
+padding-right: 15px;
+padding-bottom: 20px;
+padding-left: 25px;</pre>
+
+  <h3>Notación abreviada (shorthand)</h3>
+
+  <pre>/* Todos los lados iguales */
+padding: 10px;
+
+/* Vertical (arriba/abajo) | Horizontal (izquierda/derecha) */
+padding: 10px 20px;
+
+/* Arriba | Horizontal (izquierda/derecha) | Abajo */
+padding: 10px 20px 30px;
+
+/* Arriba | Derecha | Abajo | Izquierda (sentido del reloj) */
+padding: 10px 20px 30px 40px;</pre>
+
+  <div class="example">
+    <h3>Ejemplos de padding</h3>
+
+    <div class="comparison">
+      <div>
+        <div class="comparison-box">Base</div>
+        <div class="comparison-label">Sin padding</div>
+      </div>
+
+      <div>
+        <div class="comparison-box padding-all">All</div>
+        <div class="comparison-label">padding: 20px;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box padding-top">Top</div>
+        <div class="comparison-label">padding-top: 20px;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box padding-right">Right</div>
+        <div class="comparison-label">padding-right: 30px;</div>
+      </div>
+    </div>
+
+    <div class="comparison">
+      <div>
+        <div class="comparison-box padding-bottom">Bottom</div>
+        <div class="comparison-label">padding-bottom: 20px;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box padding-left">Left</div>
+        <div class="comparison-label">padding-left: 30px;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box padding-shorthand">Mixed</div>
+        <div class="comparison-label">padding: 5px 15px 25px 35px;</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <p>A diferencia de los márgenes, el padding:</p>
+    <ul>
+      <li>No puede tener valores negativos</li>
+      <li>No colapsa con otros paddings</li>
+      <li>Está incluido en el área donde se muestra el fondo del elemento</li>
+      <li>Aumenta el tamaño total del elemento (a menos que uses <code>box-sizing: border-box</code>)</li>
+    </ul>
+  </div>
+
+  <h2>Border (Borde)</h2>
+
+  <p>El <strong>border</strong> crea una línea alrededor del elemento, entre el padding y el margin. Tiene tres aspectos: ancho, estilo y color.</p>
+
+  <h3>Propiedades individuales de border</h3>
+
+  <pre>/* Ancho del borde */
+border-width: 1px;
+border-top-width: 1px;
+border-right-width: 2px;
+border-bottom-width: 3px;
+border-left-width: 4px;
+
+/* Estilo del borde */
+border-style: solid;
+border-top-style: solid;
+border-right-style: dashed;
+border-bottom-style: dotted;
+border-left-style: double;
+
+/* Color del borde */
+border-color: black;
+border-top-color: red;
+border-right-color: green;
+border-bottom-color: blue;
+border-left-color: yellow;</pre>
+
+  <h3>Notación abreviada (shorthand)</h3>
+
+  <pre>/* Todo en uno */
+border: 1px solid black;
+
+/* Por lado */
+border-top: 1px solid red;
+border-right: 2px dashed green;
+border-bottom: 3px dotted blue;
+border-left: 4px double yellow;</pre>
+
+  <div class="example">
+    <h3>Ejemplos de border</h3>
+
+    <div class="comparison">
+      <div>
+        <div class="comparison-box">Base</div>
+        <div class="comparison-label">Sin border</div>
+      </div>
+
+      <div>
+        <div class="comparison-box border-all">All</div>
+        <div class="comparison-label">border: 5px solid #e74c3c;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box border-top">Top</div>
+        <div class="comparison-label">border-top: 5px solid #e74c3c;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box border-right">Right</div>
+        <div class="comparison-label">border-right: 5px solid #e74c3c;</div>
+      </div>
+    </div>
+
+    <div class="comparison">
+      <div>
+        <div class="comparison-box border-bottom">Bottom</div>
+        <div class="comparison-label">border-bottom: 5px solid #e74c3c;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box border-left">Left</div>
+        <div class="comparison-label">border-left: 5px solid #e74c3c;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box border-style">Styles</div>
+        <div class="comparison-label">border-style: solid dashed dotted double;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box border-color">Colors</div>
+        <div class="comparison-label">border-color: #e74c3c #3498db #2ecc71 #f1c40f;</div>
+      </div>
+    </div>
+
+    <div class="comparison">
+      <div>
+        <div class="comparison-box border-width">Width</div>
+        <div class="comparison-label">border-width: 1px 3px 5px 7px;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box border-radius">Radius</div>
+        <div class="comparison-label">border-radius: a15px;</div>
+      </div>
+
+      <div>
+        <div class="comparison-box border-radius-different">Different Radius</div>
+        <div class="comparison-label">border-radius: 5px 15px 25px 35px;</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Estilos de border</h3>
+
+  <p>CSS ofrece varios estilos de borde:</p>
+  <ul>
+    <li><code>solid</code> - Línea sólida</li>
+    <li><code>dashed</code> - Línea discontinua</li>
+    <li><code>dotted</code> - Línea de puntos</li>
+    <li><code>double</code> - Línea doble</li>
+    <li><code>groove</code> - Efecto 3D hundido</li>
+    <li><code>ridge</code> - Efecto 3D elevado</li>
+    <li><code>inset</code> - Efecto 3D presionado</li>
+    <li><code>outset</code> - Efecto 3D saliente</li>
+    <li><code>none</code> - Sin borde</li>
+    <li><code>hidden</code> - Similar a none, pero afecta a la resolución de conflictos en tablas</li>
+  </ul>
+
+  <div class="note">
+    <p>La propiedad <code>border-radius</code> permite crear esquinas redondeadas. Si se establece en 50%, puede crear círculos (cuando el elemento es cuadrado) o elipses.</p>
+  </div>
+
+  <h2>Comparación entre margin, padding y border</h2>
+
+  <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+    <thead>
+    <tr style="background-color: #3498db; color: white;">
+      <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Propiedad</th>
+      <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Posición</th>
+      <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Color/Fondo</th>
+      <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Valores negativos</th>
+      <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Colapso</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>Margin</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Fuera del borde</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Siempre transparente</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Permitidos</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Pueden colapsar verticalmente</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>Border</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Entre margin y padding</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Color definido</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">No permitidos</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">No colapsan</td>
+    </tr>
+    <tr>
+      <td style="padding: 10px; border: 1px solid #ddd;"><strong>Padding</strong></td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Dentro del borde, alrededor del contenido</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">Hereda el color de fondo del elemento</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">No permitidos</td>
+      <td style="padding: 10px; border: 1px solid #ddd;">No colapsan</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h2>Prácticas</h2>
+
+  <div class="practice">
+    <h3>Ejercicio 1: Experimentando con margin</h3>
+
+    <div class="practice-area">
+      <p>Modifica las propiedades de margin para esta caja:</p>
+      <div class="practice-box" id="margin-practice">
+        Margin
+      </div>
+
+      <p>CSS a modificar:</p>
+      <pre>#margin-practice {
+    /* Añade diferentes valores de margin aquí */
+    /* Prueba con: */
+    margin: 20px;
+    /* o */
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+    /* o */
+    margin: 10px 20px 30px 40px;
+}</pre>
+    </div>
+
+    <h3>Ejercicio 2: Experimentando con padding</h3>
+
+    <div class="practice-area">
+      <p>Modifica las propiedades de padding para esta caja:</p>
+      <div class="practice-box" id="padding-practice">
+        Padding
+      </div>
+
+      <p>CSS a modificar:</p>
+      <pre>#padding-practice {
+    /* Añade diferentes valores de padding aquí */
+    /* Prueba con: */
+    padding: 20px;
+    /* o */
+    padding-top: 5px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 35px;
+    /* o */
+    padding: 5px 15px 25px 35px;
+}</pre>
+    </div>
+
+    <h3>Ejercicio 3: Experimentando con border</h3>
+
+    <div class="practice-area">
+      <p>Modifica las propiedades de border para esta caja:</p>
+      <div class="practice-box" id="border-practice">
+        Border
+      </div>
+
+      <p>CSS a modificar:</p>
+      <pre>#border-practice {
+    /* Añade diferentes valores de border aquí */
+    /* Prueba con: */
+    border: 3px solid #e74c3c;
+    /* o */
+    border-width: 1px 2px 3px 4px;
+    border-style: solid dashed dotted double;
+    border-color: red green blue yellow;
+    /* o */
+    border-top: 2px solid red;
+    border-right: 3px dashed green;
+    border-bottom: 4px dotted blue;
+    border-left: 5px double yellow;
+    /* o */
+    border: 3px solid #e74c3c;
+    border-radius: 10px;
+}</pre>
+    </div>
+
+    <h3>Ejercicio 4: Combinando las tres propiedades</h3>
+
+    <div class="practice-area">
+      <p>Combina margin, padding y border para crear una caja bien diseñada:</p>
+      <div class="practice-box" id="combined-practice">
+        Combinado
+      </div>
+
+      <p>CSS a modificar:</p>
+      <pre>#combined-practice {
+    /* Combina margin, padding y border aquí */
+    margin: 20px;
+    padding: 15px;
+    border: 3px solid #3498db;
+    border-radius: 10px;
+
+    /* Añade también estas propiedades para mejorar la apariencia */
+    line-height: normal;
+    text-align: center;
+}</pre>
+    </div>
+  </div>
+
+  <h2>Consejos prácticos</h2>
+
+  <ul>
+    <li>Usa <code>margin</code> para controlar el espacio entre elementos</li>
+    <li>Usa <code>padding</code> para controlar el espacio alrededor del contenido</li>
+    <li>Para centrar un elemento de bloque horizontalmente, usa <code>margin: 0 auto;</code> (debe tener un ancho definido)</li>
+    <li>Recuerda que los márgenes verticales colapsan entre elementos adyacentes</li>
+    <li>El padding aumenta el tamaño total de un elemento, a menos que uses <code>box-sizing: border-box;</code></li>
+    <li>Los bordes también aumentan el tamaño total de un elemento</li>
+    <li>Para crear formas interesantes, experimenta con la propiedad <code>border-radius</code></li>
+  </ul>
+
+  <div class="note">
+    <p>Estas tres propiedades son esenciales para el diseño en CSS. Dominarlas te permitirá controlar con precisión el espacio y la apariencia de tus elementos HTML.</p>
+  </div>
+</div>
+</body>
+</html>

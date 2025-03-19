@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sintaxis y estructura de reglas CSS</title>
+    <link rel="stylesheet" href="/css/css-1-basico/sintaxis/1.css">
+</head>
+<body>
+<div class="container">
+    <h1>Sintaxis y estructura de reglas CSS</h1>
+
+    <p>CSS (Cascading Style Sheets) es un lenguaje que se utiliza para definir el aspecto visual de las páginas web. En esta lección, aprenderemos sobre la sintaxis básica y la estructura de las reglas CSS.</p>
+
+    <h2>Estructura básica de una regla CSS</h2>
+
+    <p>Una regla CSS consta de dos partes principales:</p>
+    <ol>
+        <li><strong>Selector</strong>: Indica qué elemento HTML será estilizado</li>
+        <li><strong>Declaración</strong>: Define los estilos que se aplicarán al elemento</li>
+    </ol>
+
+    <pre>selector {
+    propiedad: valor;
+    otra-propiedad: otro-valor;
+}</pre>
+
+    <div class="note">
+        <p>La estructura siempre sigue este patrón: un selector seguido de llaves <code>{ }</code> que contienen una o más declaraciones separadas por punto y coma <code>;</code>.</p>
+    </div>
+
+    <h2>Partes de una declaración CSS</h2>
+
+    <p>Cada declaración tiene dos partes:</p>
+    <ul>
+        <li><strong>Propiedad</strong>: Es el aspecto que quieres cambiar (color, tamaño, margen, etc.)</li>
+        <li><strong>Valor</strong>: Es el valor específico que le das a esa propiedad</li>
+    </ul>
+
+    <div class="example">
+        <p>Por ejemplo, para cambiar el color de texto a rojo:</p>
+        <pre>h1 {
+    color: red;
+}</pre>
+        <p>Aquí:</p>
+        <ul>
+            <li><code>h1</code> es el selector (se aplica a todos los elementos h1)</li>
+            <li><code>color</code> es la propiedad</li>
+            <li><code>red</code> es el valor</li>
+            <li>El punto y coma <code>;</code> marca el final de la declaración</li>
+        </ul>
+    </div>
+
+    <h2>Múltiples declaraciones</h2>
+
+    <p>Puedes incluir múltiples declaraciones para un mismo selector:</p>
+
+    <pre>p {
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}</pre>
+
+    <h2>Múltiples selectores</h2>
+
+    <p>También puedes aplicar las mismas declaraciones a varios selectores separándolos por comas:</p>
+
+    <pre>h1, h2, h3 {
+    font-family: Arial, sans-serif;
+    color: #2c3e50;
+}</pre>
+
+    <div class="note">
+        <p>El último punto y coma en una lista de declaraciones es opcional, pero es una buena práctica incluirlo para facilitar futuras adiciones.</p>
+    </div>
+
+    <h2>Práctica</h2>
+
+    <div class="practice">
+        <p>Intenta crear tus propias reglas CSS en el siguiente espacio. Por ejemplo, puedes estilizar el siguiente párrafo con diferentes propiedades:</p>
+
+        <p id="ejemplo-sintaxis">Este es un párrafo para practicar con CSS. ¡Modifica su apariencia!</p>
+
+        <p>Agrega tus reglas CSS en la sección &lt;style&gt; del documento, buscando el selector <code>#ejemplo-sintaxis</code>.</p>
+
+        <p>Prueba con estas propiedades:</p>
+        <ul>
+            <li><code>color</code> (ej. blue, #FF5733, rgb(34, 139, 34))</li>
+            <li><code>font-size</code> (ej. 18px, 1.2em)</li>
+            <li><code>font-weight</code> (ej. bold, normal, 700)</li>
+            <li><code>background-color</code> (ej. lightgray, #f0f0f0)</li>
+            <li><code>padding</code> (ej. 10px, 5px 10px)</li>
+            <li><code>border</code> (ej. 1px solid black)</li>
+        </ul>
+    </div>
+
+    <h2>Consejos importantes</h2>
+
+    <ul>
+        <li>CSS es sensible a los espacios en algunas partes; asegúrate de usar la sintaxis correcta</li>
+        <li>Olvidar un punto y coma <code>;</code> puede causar que las siguientes declaraciones no funcionen</li>
+        <li>Las llaves <code>{ }</code> deben estar balanceadas (una de apertura y una de cierre)</li>
+        <li>Si una propiedad o valor no es reconocido, la declaración completa será ignorada</li>
+    </ul>
+</div>
+</body>
+</html>

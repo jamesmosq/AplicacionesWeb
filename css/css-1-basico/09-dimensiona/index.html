@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensionamiento de elementos en CSS</title>
+    <link rel="stylesheet" href="/css/css-1-basico/09-dimensiona/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Dimensionamiento de elementos en CSS</h1>
+
+    <p>Controlar las dimensiones de los elementos es fundamental para el diseño web. CSS ofrece múltiples propiedades y unidades para definir el tamaño de los elementos de manera precisa y flexible.</p>
+
+    <h2>Propiedades básicas de dimensionamiento</h2>
+
+    <p>Las propiedades principales para definir las dimensiones de un elemento son:</p>
+
+    <pre>/* Propiedades de ancho */
+width: 300px;       /* Ancho fijo */
+min-width: 200px;   /* Ancho mínimo */
+max-width: 800px;   /* Ancho máximo */
+
+/* Propiedades de alto */
+height: 150px;      /* Alto fijo */
+min-height: 100px;  /* Alto mínimo */
+max-height: 400px;  /* Alto máximo */</pre>
+
+    <div class="dimension-examples">
+        <h3>Ejemplos de width (ancho)</h3>
+
+        <div class="box width-px">
+            width: 200px
+        </div>
+
+        <div class="box width-percent">
+            width: 50%
+        </div>
+
+        <div class="box width-auto">
+            width: auto (valor por defecto)
+        </div>
+
+        <div class="box width-max">
+            max-width: 300px
+        </div>
+
+        <div class="box width-min">
+            min-width: 200px
+        </div>
+
+        <h3>Ejemplos de height (alto)</h3>
+
+        <div class="box height-px">
+            height: 100px
+        </div>
+
+        <div class="box height-auto">
+            height: auto (valor por defecto)<br>
+            Se ajusta al contenido
+        </div>
+
+        <div class="box height-max">
+            max-height: 100px<br>
+            Con overflow: auto<br>
+            Esto es texto adicional para demostrar cómo funciona max-height con overflow.<br>
+            Cuando el contenido excede la altura máxima, aparece una barra de desplazamiento.
+        </div>
+
+        <div class="box height-min">
+            min-height: 100px<br>
+            Crece si el contenido necesita más espacio
+        </div>
+    </div>
+
+    <h2>Unidades de medida en CSS</h2>
+
+    <p>CSS ofrece diversas unidades para definir dimensiones, adaptadas a diferentes necesidades de diseño:</p>
+
+    <h3>Unidades absolutas</h3>
+
+    <ul>
+        <li><code>px</code> (píxeles): Unidad más común, representa un punto en la pantalla</li>
+        <li><code>cm</code>, <code>mm</code> (centímetros, milímetros): Unidades físicas de longitud</li>
+        <li><code>in</code> (pulgadas): Equivale a 96px (en la mayoría de los navegadores)</li>
+        <li><code>pt</code> (puntos): Usado principalmente para texto, 1pt = 1/72 de pulgada</li>
+    </ul>
+
+    <h3>Unidades relativas</h3>
+
+    <ul>
+        <li><code>%</code> (porcentaje): Relativo al elemento padre</li>
+        <li><code>em</code>: Relativo al tamaño de fuente del elemento actual</li>
+        <li><code>rem</code>: Relativo al tamaño de fuente del elemento raíz (html)</li>
+        <li><code>vw</code>, <code>vh</code>: Relativo al viewport (1vw = 1% del ancho de la ventana, 1vh = 1% del alto)</li>
+        <li><code>vmin</code>, <code>vmax</code>: Relativo a la dimensión menor/mayor del viewport</li>
+    </ul>
+
+    <div class="example">
+        <h3>Ejemplos de unidades relativas</h3>
+
+        <h4>Porcentaje (%)</h4>
+        <div class="parent-container">
+            Elemento padre
+            <div class="box width-percent">
+                width: 50% del padre
+            </div>
+        </div>
+
+        <h4>em y rem</h4>
+        <div class="em-container">
+            Contenedor con font-size: 16px
+            <div class="em-box">
+                width: 10em (10 × 16px = 160px)
+            </div>
+            <div class="rem-box">
+                width: 10rem (10 × tamaño de fuente raíz)
+            </div>
+        </div>
+
+        <h4>Unidades de viewport (vw y vh)</h4>
+        <p>Estas unidades son relativas al tamaño de la ventana del navegador (viewport):</p>
+        <div class="viewport-example">
+            <div class="vw-box">50vw de ancho</div>
+            <div class="vh-box">20vh de alto</div>
+        </div>
+    </div>
+
+    <div class="note">
+        <p><strong>¿Cuándo usar cada unidad?</strong></p>
+        <ul>
+            <li><code>px</code>: Cuando necesitas precisión absoluta</li>
+            <li><code>%</code>: Para diseños fluidos que se adaptan al contenedor</li>
+            <li><code>em</code>: Para dimensiones que deben escalar con el tamaño de fuente del elemento</li>
+            <li><code>rem</code>: Para dimensiones consistentes que escalan con la configuración del usuario</li>
+            <li><code>vw</code>/<code>vh</code>: Para elementos que deben adaptarse al tamaño de la ventana</li>
+        </ul>
+    </div>
+
+    <h2>Comportamiento de width y height</h2>
+
+    <p>Existen diferencias importantes en cómo se comportan width y height por defecto:</p>
+
+    <h3>Width (ancho)</h3>
+    <ul>
+        <li>Para elementos de bloque (display: block), <code>width: auto</code> significa que el elemento ocupa todo el ancho disponible</li>
+        <li>Para elementos en línea (display: inline), <code>width: auto</code> significa que el ancho se ajusta al contenido</li>
+        <li>Los elementos en línea ignoran la propiedad width (a menos que se convierta a inline-block o block)</li>
+    </ul>
+
+    <h3>Height (alto)</h3>
+    <ul>
+        <li>Para todos los elementos, <code>height: auto</code> significa que la altura se ajusta al contenido</li>
+        <li>Si se establece un height fijo, el contenido puede desbordarse si no cabe (ver propiedad overflow)</li>
+        <li>Para que height: 100% funcione, los elementos ancestros deben tener una altura definida</li>
+    </ul>
+
+    <div class="example">
+        <h3>Comparación entre width y height</h3>
+        <div class="comparison">
+            <div class="comparison-item">
+                <div class="comparison-title">display: block + width: auto</div>
+                <div style="display: block; width: auto; background-color: #3498db; color: white; text-align: center; padding: 10px;">
+                    Ocupa todo el ancho disponible
+                </div>
+            </div>
+
+            <div class="comparison-item">
+                <div class="comparison-title">display: inline + width: auto</div>
+                <span style="display: inline; width: auto; background-color: #3498db; color: white; text-align: center; padding: 10px;">
+                        Solo ocupa el espacio necesario
+                    </span>
+            </div>
+        </div>
+
+        <div class="comparison">
+            <div class="comparison-item">
+                <div class="comparison-title">height: auto</div>
+                <div style="height: auto; background-color: #3498db; color: white; text-align: center; padding: 10px;">
+                    La altura se ajusta<br>
+                    al contenido<br>
+                    automáticamente
+                </div>
+            </div>
+
+            <div class="comparison-item">
+                <div class="comparison-title">height: 50px (con overflow)</div>
+                <div style="height: 50px; overflow: visible; background-color: #3498db; color: white; text-align: center; padding: 10px;">
+                    La altura está fija a 50px<br>
+                    pero el contenido puede<br>
+                    desbordarse si no cabe<br>
+                    dentro del elemento
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Propiedades adicionales de dimensionamiento</h2>
+
+    <h3>aspect-ratio</h3>
+    <p>La propiedad <code>aspect-ratio</code> define la relación entre el ancho y alto de un elemento:</p>
+    <div class="aspect-ratio-box">
+        aspect-ratio: 16/9
+    </div>
+
+    <h3>overflow</h3>
+    <p>La propiedad <code>overflow</code> controla qué ocurre cuando el contenido es demasiado grande para caber en el área asignada:</p>
+    <div class="comparison">
+        <div class="comparison-item">
+            <div class="comparison-title">overflow: visible (default)</div>
+            <div style="width: 150px; height: 100px; overflow: visible; border: 1px solid #3498db;">
+                <div style="width: 200px; height: 150px; background-color: rgba(52, 152, 219, 0.5);">
+                    Este contenido es más grande que su contenedor y se desborda visiblemente.
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-item">
+            <div class="comparison-title">overflow: hidden</div>
+            <div style="width: 150px; height: 100px; overflow: hidden; border: 1px solid #3498db;">
+                <div style="width: 200px; height: 150px; background-color: rgba(52, 152, 219, 0.5);">
+                    Este contenido es más grande que su contenedor pero se recorta.
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-item">
+            <div class="comparison-title">overflow: auto</div>
+            <div style="width: 150px; height: 100px; overflow: auto; border: 1px solid #3498db;">
+                <div style="width: 200px; height: 150px; background-color: rgba(52, 152, 219, 0.5);">
+                    Este contenido es más grande que su contenedor y muestra barras de desplazamiento cuando es necesario.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Estrategias de dimensionamiento para diseño web responsive</h2>
+
+    <h3>Para layouting general</h3>
+    <ul>
+        <li>Usa <code>max-width</code> en lugar de <code>width</code> fijo para contenedores principales</li>
+        <li>Combina unidades fijas y relativas para flexibilidad controlada</li>
+        <li>Usa porcentajes para anchos en diseños multi-columna</li>
+        <li>Aplica <code>box-sizing: border-box</code> para facilitar cálculos</li>
+    </ul>
+
+    <h3>Para imágenes y medios</h3>
+    <ul>
+        <li>Usa <code>max-width: 100%</code> para imágenes responsivas</li>
+        <li>Considera <code>aspect-ratio</code> para mantener proporciones</li>
+        <li>Usa <code>object-fit</code> para controlar cómo se ajustan las imágenes</li>
+    </ul>
+
+    <pre>/* Ejemplo de imagen responsiva */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ejemplo de contenedor de video responsivo */
+.video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.video-container iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}</pre>
+
+    <h2>Práctica</h2>
+
+    <div class="practice">
+        <h3>Ejercicio 1: Dimensionamiento básico</h3>
+
+        <p>Experimenta con diferentes valores de dimensionamiento para esta caja:</p>
+
+        <div class="practice-container">
+            <div class="practice-child" id="dimension-practice">
+                Modifica mis dimensiones
+            </div>
+        </div>
+
+        <p>Propiedades a experimentar:</p>
+        <pre>#dimension-practice {
+    /* Prueba con diferentes combinaciones */
+    width: 50%;       /* o prueba con px, em, rem, vw */
+    height: 100px;    /* o prueba con %, em, rem, vh */
+
+    /* Añade restricciones */
+    min-width: 200px;
+    max-width: 400px;
+
+    /* Prueba también */
+    aspect-ratio: 16/9;
+}</pre>
+
+        <h3>Ejercicio 2: Unidades relativas</h3>
+
+        <p>Crea un diseño donde:</p>
+        <ol>
+            <li>El contenedor tenga un ancho del 80% de su padre</li>
+            <li>Un elemento hijo tenga un ancho de 20em</li>
+            <li>Otro elemento hijo tenga un ancho del 50% de su padre</li>
+        </ol>
+
+        <pre>.container {
+    width: 80%;
+    border: 1px solid #333;
+    padding: 20px;
+}
+
+.em-child {
+    width: 20em;
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.percent-child {
+    width: 50%;
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+}</pre>
+
+        <h3>Ejercicio 3: Responsive</h3>
+
+        <p>Crea una caja que:</p>
+        <ol>
+            <li>Tenga un ancho máximo de 800px</li>
+            <li>Nunca sea más estrecha que 300px</li>
+            <li>Se centre automáticamente en la página</li>
+            <li>Tenga una altura mínima de 200px pero se expanda si el contenido lo requiere</li>
+        </ol>
+
+        <pre>.responsive-box {
+    max-width: 800px;
+    min-width: 300px;
+    width: 90%;
+    margin: 0 auto;
+    min-height: 200px;
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+}</pre>
+    </div>
+
+    <h2>Consejos prácticos</h2>
+
+    <ul>
+        <li>Para diseños responsivos, evita alturas fijas cuando sea posible</li>
+        <li>Usa min-height en lugar de height para elementos que contienen texto variable</li>
+        <li>Combina max-width con width en porcentaje para contenedores flexibles con límites</li>
+        <li>Prefiere unidades relativas (%, em, rem) para mejor adaptabilidad</li>
+        <li>Usa unidades de viewport (vw, vh) para elementos que deben escalarse con la ventana</li>
+        <li>Para elementos inline que necesitan ancho/alto definido, cambia su display a inline-block</li>
+        <li>Recuerda que el box-sizing afecta cómo se calculan las dimensiones (content-box vs border-box)</li>
+        <li>Prueba siempre tus diseños en diferentes tamaños de pantalla</li>
+    </ul>
+
+    <div class="note">
+        <p>Uno de los errores más comunes en CSS es intentar establecer height: 100% sin asegurarse de que todos los elementos padre (incluidos html y body) tengan también una altura definida. Para hacer que un elemento ocupe todo el alto de la ventana, considera usar height: 100vh en su lugar.</p>
+    </div>
+
+    <h2>Resumen de unidades de dimensionamiento</h2>
+
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+        <thead>
+        <tr style="background-color: #3498db; color: white;">
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Unidad</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Tipo</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Relativo a</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Mejor para</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>px</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Absoluta</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">-</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Elementos que requieren precisión exacta</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>%</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Relativa</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Elemento padre</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Layouts fluidos, diseño responsive</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>em</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Relativa</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Tamaño de fuente del elemento</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Componentes que escalan con el texto</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>rem</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Relativa</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Tamaño de fuente del elemento raíz</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Consistencia en todo el sitio, accesibilidad</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>vw</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Relativa</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Ancho del viewport</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Elementos que escalan con el ancho de ventana</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>vh</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Relativa</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Alto del viewport</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Elementos que escalan con el alto de ventana</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Conclusión</h2>
+
+    <p>El dimensionamiento efectivo de elementos en CSS es un equilibrio entre precisión y flexibilidad. Elegir las unidades y propiedades correctas para cada situación te permitirá crear diseños que se adapten a diferentes dispositivos y preferencias de usuario.</p>
+
+    <ul>
+        <li>Entiende las diferencias entre unidades absolutas y relativas</li>
+        <li>Aprovecha min-width, max-width, min-height y max-height para crear límites flexibles</li>
+        <li>Considera el impacto de box-sizing en tus cálculos de dimensiones</li>
+        <li>Utiliza aspect-ratio y object-fit para controlar las proporciones</li>
+        <li>Planifica tu estrategia de dimensionamiento pensando en la adaptabilidad</li>
+    </ul>
+
+    <div class="note">
+        <p>Recuerda que en CSS moderno, con flexbox y grid, a menudo puedes dejar que el layout determine automáticamente las dimensiones de los elementos, lo que puede ser más eficiente que establecer width y height manualmente para cada elemento.</p>
+    </div>
+</div>
+</body>
+</html>

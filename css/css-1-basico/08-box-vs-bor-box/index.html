@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-sizing: content-box vs border-box</title>
+    <link rel="stylesheet" href="/css/css-1-basico/08-box-vs-bor-box/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Box-sizing: content-box vs border-box</h1>
+
+    <p>La propiedad <code>box-sizing</code> es una de las más importantes en CSS, ya que determina cómo se calculan las dimensiones totales de un elemento. Existen dos valores principales: <code>content-box</code> (el valor por defecto) y <code>border-box</code>.</p>
+
+    <h2>El problema del modelo de caja tradicional</h2>
+
+    <p>En el modelo de caja tradicional de CSS (content-box), cuando defines un ancho (<code>width</code>) para un elemento, ese ancho se aplica <strong>solamente al contenido</strong>. El padding y el borde se añaden al ancho total, lo que puede causar resultados inesperados.</p>
+
+    <div class="box-demo">
+        <div class="demo-item">
+            <h3>Con box-sizing: content-box (predeterminado)</h3>
+            <div class="box content-box">
+                width: 200px<br>
+                padding: 20px<br>
+                border: 10px
+            </div>
+            <div class="dimensions">
+                <strong>Ancho definido:</strong> 200px<br>
+                <strong>Ancho real:</strong> 200px + (20px * 2) + (10px * 2) = 260px<br>
+                <em>El ancho total incluye padding y border</em>
+            </div>
+        </div>
+
+        <div class="demo-item">
+            <h3>Con box-sizing: border-box</h3>
+            <div class="box border-box">
+                width: 200px<br>
+                padding: 20px<br>
+                border: 10px
+            </div>
+            <div class="dimensions">
+                <strong>Ancho definido:</strong> 200px<br>
+                <strong>Ancho real:</strong> 200px (incluye padding y border)<br>
+                <strong>Ancho del contenido:</strong> 200px - (20px * 2) - (10px * 2) = 140px<br>
+                <em>El ancho total es exactamente el definido</em>
+            </div>
+        </div>
+    </div>
+
+    <h2>¿Qué es box-sizing?</h2>
+
+    <p>La propiedad <code>box-sizing</code> define cómo se calculan el ancho y el alto de un elemento:</p>
+
+    <pre>box-sizing: content-box | border-box;</pre>
+
+    <h3>content-box (valor predeterminado)</h3>
+
+    <p>Con <code>content-box</code>:</p>
+    <ul>
+        <li>El valor de <code>width</code> se aplica solo al contenido del elemento</li>
+        <li>El padding y el border se añaden al ancho/alto especificado</li>
+        <li>Ancho total = width + padding-left + padding-right + border-left + border-right</li>
+        <li>Alto total = height + padding-top + padding-bottom + border-top + border-bottom</li>
+    </ul>
+
+    <h3>border-box</h3>
+
+    <p>Con <code>border-box</code>:</p>
+    <ul>
+        <li>El valor de <code>width</code> incluye el contenido, el padding y el border</li>
+        <li>El contenido se reduce para dar espacio al padding y al border</li>
+        <li>Ancho total = width (el padding y el border están incluidos en este valor)</li>
+        <li>Alto total = height (el padding y el border están incluidos en este valor)</li>
+    </ul>
+
+    <div class="note">
+        <p>El <code>margin</code> NUNCA está incluido en el cálculo del tamaño, independientemente del valor de <code>box-sizing</code>. Siempre es externo y se añade al tamaño total.</p>
+    </div>
+
+    <h2>Representación visual</h2>
+
+    <div class="comparison">
+        <div class="comparison-item">
+            <div class="comparison-title">content-box</div>
+            <div class="dimension-figure">
+                <div class="box-model">
+                    <div class="model-margin">Margin</div>
+                    <div class="model-border">Border</div>
+                    <div class="model-padding">Padding</div>
+                    <div class="model-content">Content<br>(width/height)</div>
+                </div>
+            </div>
+            <p><code>width</code> y <code>height</code> se aplican solo al contenido (área azul). El padding, border y margin aumentan el tamaño total.</p>
+        </div>
+
+        <div class="comparison-item">
+            <div class="comparison-title">border-box</div>
+            <div class="dimension-figure">
+                <div class="box-model">
+                    <div class="model-margin">Margin</div>
+                    <div class="model-border">
+                        <span style="position: absolute; top: -20px; width: 100%; text-align: center;">width/height incluye hasta aquí</span>
+                    </div>
+                    <div class="model-padding">Padding</div>
+                    <div class="model-content">Content<br>(reducido)</div>
+                </div>
+            </div>
+            <p><code>width</code> y <code>height</code> incluyen el contenido, padding y border. Solo el margin es adicional.</p>
+        </div>
+    </div>
+
+    <h2>¿Por qué usar border-box?</h2>
+
+    <p>Existen varias razones por las que muchos desarrolladores prefieren usar <code>box-sizing: border-box</code>:</p>
+
+    <ol>
+        <li><strong>Más intuitivo</strong>: Las dimensiones definidas son las dimensiones reales del elemento visible</li>
+        <li><strong>Facilita el diseño</strong>: Facilita la creación de layouts con porcentajes y columnas</li>
+        <li><strong>Previene desbordamientos</strong>: Evita que elementos excedan el ancho de su contenedor al añadir padding</li>
+        <li><strong>Adaptabilidad</strong>: Permite modificar el padding y border sin afectar las dimensiones externas</li>
+    </ol>
+
+    <h3>Ejemplo práctico: Columnas</h3>
+
+    <div class="layout-example">
+        <p>Con content-box, las columnas del 50% con padding pueden superar el 100% del ancho:</p>
+        <div class="columns" style="box-sizing: content-box;">
+            <div class="column" style="width: 50%; box-sizing: content-box;">
+                <div class="column-content">
+                    width: 50%<br>
+                    padding: 10px<br>
+                    El ancho real > 50%
+                </div>
+            </div>
+            <div class="column" style="width: 50%; box-sizing: content-box;">
+                <div class="column-content">
+                    width: 50%<br>
+                    padding: 10px<br>
+                    El ancho real > 50%
+                </div>
+            </div>
+        </div>
+
+        <p>Con border-box, dos columnas del 50% siempre ocupan exactamente el 100%:</p>
+        <div class="columns" style="box-sizing: border-box;">
+            <div class="column" style="width: 50%; box-sizing: border-box;">
+                <div class="column-content">
+                    width: 50%<br>
+                    padding: 10px<br>
+                    El ancho total = 50%
+                </div>
+            </div>
+            <div class="column" style="width: 50%; box-sizing: border-box;">
+                <div class="column-content">
+                    width: 50%<br>
+                    padding: 10px<br>
+                    El ancho total = 50%
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Uso recomendado de box-sizing</h2>
+
+    <p>Muchos desarrolladores aplican <code>border-box</code> a todos los elementos con un reset CSS:</p>
+
+    <pre>*, *::before, *::after {
+    box-sizing: border-box;
+}</pre>
+
+    <p>Esta configuración hace que todos los elementos utilicen el modelo border-box, lo que genera un comportamiento más intuitivo y predecible.</p>
+
+    <div class="note">
+        <p>Frameworks populares como Bootstrap y Tailwind CSS usan <code>box-sizing: border-box</code> por defecto para todos los elementos, lo que facilita la creación de layouts.</p>
+    </div>
+
+    <h2>Práctica</h2>
+
+    <div class="practice">
+        <h3>Ejercicio 1: Experimenta con box-sizing</h3>
+
+        <div class="interactive-demo">
+            <p>Observa cómo la misma configuración de ancho, padding y borde se comporta de manera diferente según el valor de box-sizing:</p>
+
+            <div class="comparison">
+                <div class="comparison-item">
+                    <div class="comparison-title">content-box</div>
+                    <div class="practice-box practice-content-box" id="content-box-example">
+                        content-box
+                    </div>
+                    <div class="dimensions">
+                        width: 200px<br>
+                        padding: 20px<br>
+                        border: 5px solid #2c3e50<br>
+                        <strong>Ancho total: 250px</strong>
+                    </div>
+                </div>
+
+                <div class="comparison-item">
+                    <div class="comparison-title">border-box</div>
+                    <div class="practice-box practice-border-box" id="border-box-example">
+                        border-box
+                    </div>
+                    <div class="dimensions">
+                        width: 200px<br>
+                        padding: 20px<br>
+                        border: 5px solid #2c3e50<br>
+                        <strong>Ancho total: 200px</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <p>Modifica estos valores y observa cómo afectan a cada caja:</p>
+                    <pre>/* Modifica estas propiedades en el inspector para ambas cajas */
+.practice-box {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid #2c3e50;
+}
+
+/* Las diferentes reglas de box-sizing ya están aplicadas */
+.practice-content-box {
+    box-sizing: content-box; /* Predeterminado */
+}
+
+.practice-border-box {
+    box-sizing: border-box;
+}</pre>
+                </div>
+            </div>
+        </div>
+
+        <h3>Ejercicio 2: Layout con columnas</h3>
+
+        <p>Crea un layout de dos columnas con las siguientes características:</p>
+        <ol>
+            <li>Dos columnas de igual ancho (50% cada una)</li>
+            <li>Cada columna debe tener padding de 20px</li>
+            <li>Cada columna debe tener un borde de 1px</li>
+            <li>Las columnas deben estar una al lado de la otra sin desbordarse</li>
+        </ol>
+
+        <p>Solución (usando border-box):</p>
+
+        <pre>.container {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.column {
+    width: 50%;
+    padding: 20px;
+    border: 1px solid #333;
+    box-sizing: border-box;
+}</pre>
+
+        <p>¿Qué pasaría si usaras content-box? ¿Funcionaría el layout? ¿Por qué?</p>
+    </div>
+
+    <h2>Compatibilidad con navegadores</h2>
+
+    <p>La propiedad <code>box-sizing</code> es compatible con todos los navegadores modernos. Para asegurar compatibilidad con navegadores más antiguos, se pueden usar prefijos de proveedores:</p>
+
+    <pre>*, *::before, *::after {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, otros WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, otros Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}</pre>
+
+    <div class="note">
+        <p>En la actualidad, estos prefijos rara vez son necesarios, pero pueden añadirse para garantizar la compatibilidad con navegadores muy antiguos.</p>
+    </div>
+
+    <h2>Resumen: content-box vs border-box</h2>
+
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+        <thead>
+        <tr style="background-color: #3498db; color: white;">
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">Característica</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">content-box</th>
+            <th style="padding: 10px; text-align: left; border: 1px solid #ddd;">border-box</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Valor por defecto</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Sí</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">No</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Cálculo de width/height</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Solo contenido</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Contenido + padding + border</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Tamaño total</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Aumenta con padding y border</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Se mantiene igual (contenido se reduce)</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Ventajas</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Comportamiento tradicional de CSS</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Más intuitivo, facilita layouts, previene desbordamientos</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Recomendado para</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Casos específicos donde necesitas controlar exactamente el área de contenido</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">La mayoría de los casos de uso, especialmente layouts</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>Conclusión</h2>
+
+    <p>La propiedad <code>box-sizing</code> es una herramienta fundamental en CSS moderno que cambia cómo se calculas las dimensiones de los elementos:</p>
+
+    <ul>
+        <li><code>content-box</code> es el valor predeterminado y sigue el modelo de caja original de CSS, donde width y height se aplican solo al contenido.</li>
+        <li><code>border-box</code> crea un comportamiento más intuitivo donde width y height incluyen el contenido, el padding y el border.</li>
+        <li>Usar <code>box-sizing: border-box</code> globalmente es una práctica recomendada que hace que el diseño y el layout sean más predecibles.</li>
+        <li>La única parte del modelo de caja que siempre queda fuera del cálculo de tamaño es el margin.</li>
+    </ul>
+
+    <div class="note">
+        <p>Recuerda la regla simple: con <code>border-box</code>, si defines un elemento con <code>width: 300px</code>, ocupará exactamente 300px de ancho sin importar cuánto padding o border tenga.</p>
+    </div>
+</div>
+</body>
+</html>
