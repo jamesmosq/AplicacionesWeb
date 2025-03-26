@@ -1,0 +1,102 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Contenedor principal con flexbox */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjetas individuales */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    flex: 1 1 300px; /* Crecimiento, contracción y base */
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    height: 160px;
+    background-color: #3498db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-header h2 {
+    color: white;
+    font-size: 24px;
+}
+
+.card-body {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.card-body p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.card-footer {
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 100%;
+    }
+}
+
+
+/*
+Apuntes */
+
+@media screen and (max-width: 768px) {
+    /* Estilos para dispositivos con ancho máximo de 768px */
+  }

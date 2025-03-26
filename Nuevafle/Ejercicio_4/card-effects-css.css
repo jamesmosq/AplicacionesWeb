@@ -1,0 +1,223 @@
+/* Estilos generales y reseteo */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f8fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos base para todas las tarjetas */
+.card {
+    background-color: white;
+    border-radius: 10px;
+    width: 280px;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-content {
+    padding: 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h2 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #7f8c8d;
+    margin-bottom: 15px;
+}
+
+.card button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+}
+
+.card button:hover {
+    background-color: #2980b9;
+}
+
+/* 1. Sombra básica */
+.shadow-basic {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Sombra al pasar el cursor */
+.shadow-hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 3. Efecto de elevación */
+.lift-effect {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lift-effect:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 4. Sombra interna */
+.inner-shadow {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.inner-shadow:hover {
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+/* 5. Sombra colorida */
+.color-shadow {
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.color-shadow:hover {
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
+}
+
+/* 6. Animación de borde */
+.border-animation {
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.border-animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #3498db, transparent);
+    animation: border-slide 3s infinite;
+}
+
+@keyframes border-slide {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+/* 7. Efecto pulso */
+.pulse-effect {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pulse-effect:hover {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+        transform: scale(1.03);
+    }
+    100% {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transform: scale(1);
+    }
+}
+
+/* 8. Rotación 3D */
+.rotate-3d {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.rotate-3d:hover {
+    transform: rotateX(5deg) rotateY(-5deg);
+    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .card-container {
+        gap: 20px;
+    }
+    
+    .card {
+        width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Estilos para el footer */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    color: #7f8c8d;
+}
